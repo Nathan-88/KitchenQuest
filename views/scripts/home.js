@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import navbar from './components/navbar';
+import navbar from 'navbar';
 
 
 const home = {};

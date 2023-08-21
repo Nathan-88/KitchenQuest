@@ -1,6 +1,6 @@
 export default {
   template: /*html*/ `
-    <img src="" alt="kitchen Quest">
+    <img src="images/Logo.svg" alt="kitchen Quest">
     <ul>
       <li>Home</li>
       <li>Recipes</li>

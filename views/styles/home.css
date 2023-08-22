@@ -87,3 +87,35 @@ div.dots {
     height: 80%;
     width: 500px;
 }
+div.search {
+    background-color: white;
+    margin-left: 100px;
+    height: 50px;
+    width: 350px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+div.search:has(input:focus-visible){
+    border-width: 1px;
+}
+div.search button,
+div.search input{
+    height: 100%;
+    border-width: 0;
+    font-size: 18px ;
+}
+div.search input{
+    grid-column: 1/3;
+    padding-inline: 10px;
+}
+div.search input::placeholder{
+    color: rgb(221, 211, 211);
+}
+div.search input[type=text]:focus-visible {
+    outline-width: 0;
+}
+div.search button{
+    grid-column: 3/4;
+    border-radius: 200px 4px 4px 4px;
+    background: #FD043C;
+}

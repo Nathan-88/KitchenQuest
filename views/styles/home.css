@@ -42,7 +42,7 @@ header {
 .shadow_heading{
     color: #EBE6E6;
     font-family: Poppins;
-    font-size: 150px;
+    font-size: 120px;
     font-style: normal;
     font-weight: 600;
     line-height: 160%; /* 320px */
@@ -54,19 +54,22 @@ header {
     flex-shrink: 0;
     padding: 30px;
 }
-.hero_text {
+.hero-text {
     color: #261A5A;
     font-family: Poppins;
-    font-size: 55px;
+    font-size: 50px;
     font-style: normal;
     font-weight: 700;
     /* line-height: 160%; 112px */
-    letter-spacing: -2.1px;
+    letter-spacing: -4.1px;
     width: 80%;
     margin-left: 100px;
     position: relative;
-    top: -80px;
+    top: -90px;
 }
+/* .hero-text:nth-child(1) {
+    color: red !important;
+} */
 div.dots {
     height: 100%;
     width: 100%;
@@ -120,9 +123,17 @@ div.search button{
     border-radius: 200px 4px 4px 4px;
     background: #FD043C;
 }
+main {
+    margin-inline: 20px;
+}
 /* Recipe Section */
 section.recipes {
     display: grid;
     grid-template-rows: 0.5fr 2.5fr;
     grid-template-columns: 1fr;
+    margin-top: 20px;
+}
+section.recipes h2{
+    grid-row: 1/2;
+    justify-self: end;
 }

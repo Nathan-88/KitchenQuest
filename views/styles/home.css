@@ -2,9 +2,14 @@ header {
     width: 100%;
     display: flex;
     flex-direction: row;
+    height: 600px;
 }
 .nav-container {
     width: 70vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 #navbar {
     display: inline-flex;
@@ -14,6 +19,7 @@ header {
     flex-direction: row;
     margin: 18px 0px 0px 50px;
     width: 85%;
+    /* grid-row: 1/2; */
 }
 #navbar img {
     width: 209px;
@@ -67,17 +73,19 @@ header {
     position: relative;
     top: -90px;
 }
-/* .hero-text:nth-child(1) {
-    color: red !important;
-} */
+.hero-text:nth-child(4){
+    top: -120px;
+}
+.hero-text:nth-child(5) {
+    top: -150px;
+}
 div.dots {
-    height: 100%;
     width: 100%;
     background-image: url('../images/Vector.svg');
     background-repeat: repeat;
     background-size: 34px;
     width: 350px;
-    height: 70%;
+    height: 75%;
     position: absolute;
     right: 20%;
     top: 20%;
@@ -87,7 +95,7 @@ div.dots {
     position: absolute;
     top: 20%;
     right: 12%;
-    height: 80%;
+    height: 500px;
     width: 500px;
 }
 div.search {
@@ -98,10 +106,13 @@ div.search {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10);
+    /* positioning it using its base position, which is down */
+    position: relative;
+    top: -120px;
 }
-div.search:has(input:focus-visible){
+/* div.search:has(input:focus-visible){
     border-width: 1px;
-}
+} */
 div.search button,
 div.search input{
     height: 100%;
@@ -126,6 +137,60 @@ div.search button{
 main {
     margin-inline: 20px;
 }
+/* MAin Content */
+
+/* Random Section */
+section.random{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+}
+section.random div.quote{
+    /* background-color: blue; */
+    width: 50%;
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    align-self: center;
+}
+div.quote .red-bar{
+    background: #FD043C;
+    display: inline-block;
+    width: 15px;
+    height: 45px;
+    flex-shrink: 0;
+}
+div.quote p {
+    width: 28ch;
+    color: #261A5A;
+    font-weight: 600;
+    letter-spacing: -1.1px;
+}
+section.random div.quote-two{
+    grid-column: 2/3;
+    width: 70%;
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+}
+div.quote-two h3{
+    color: #261A5A;
+    font-weight: 600;
+    text-align: right;
+    font-size: 30px;
+    font-style: normal;
+    letter-spacing: -2.1px;
+}
+div.quote-two p{
+    width: 43ch;
+    color: #727070;
+    text-align: right;
+    align-self: flex-end;
+}
+
+
 /* Recipe Section */
 section.recipes {
     display: grid;

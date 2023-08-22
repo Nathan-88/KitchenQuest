@@ -94,6 +94,7 @@ div.search {
     width: 350px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10);
 }
 div.search:has(input:focus-visible){
     border-width: 1px;
@@ -118,4 +119,10 @@ div.search button{
     grid-column: 3/4;
     border-radius: 200px 4px 4px 4px;
     background: #FD043C;
+}
+/* Recipe Section */
+section.recipes {
+    display: grid;
+    grid-template-rows: 0.5fr 2.5fr;
+    grid-template-columns: 1fr;
 }

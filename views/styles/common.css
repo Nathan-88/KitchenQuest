@@ -1,9 +1,24 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+    Base Styles
+    ========================================================================== */
+:root {
+    --background-color: #FFF5EC;
+    --red-color: #FD043C;
+    --hash-color: #727070;
+    --grayscale-50: #333333;
+    --primary-font: 'Poppins', sans-serif;
+    --secondary-font: 'Roboto', sans-serif;
 }
 body {
-    background: #FFF5EC;
-    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    font-family: var(--primary-font);
 }

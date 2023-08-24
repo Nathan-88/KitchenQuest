@@ -16,9 +16,11 @@
         <section class="nav-container">
             <nav id="navbar"></nav>
             <h1 class="shadow_heading">request</h1>
-            <p class="hero-text">Discover Recipes for</p>
-            <p class="hero-text">Delicious Foods around</p>
-            <p class="hero-text">the World</p>
+            <div class="hero-text-container">
+                <p class="hero-text">Discover Recipes for</p>
+                <p class="hero-text">Delicious Foods around</p>
+                <p class="hero-text">the World</p>
+            </div>
             <div class="search">
                 <input type="text" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
                 <button type="submit">Go</button>
@@ -44,6 +46,30 @@
         <!-- Recipe Section -->
         <section class="recipes">
             <h2>Recipes</h2>
+            <section class="recipe-display">
+                <div class="random-recipe-image"><!-- div for an image, check css --></div>
+                <div class="recipe-container">
+                    <img class="recipe-image" src="images/Rectangle 7.png" alt="recipe name">
+                    <div class="recipe-content-container">
+                        <div class="recipe-description">
+                            <h3>Yoruba Poraro</h3>
+                            <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
+                        </div>
+                        <button type="submit">Go</button>
+                    </div>
+                </div>
+                <div class="recipe-container">
+                    <img class="recipe-image" src="images/Rectangle 7.png" alt="recipe name">
+                    <div class="recipe-content-container">
+                        <div class="recipe-description">
+                            <h3>Yoruba Poraro</h3>
+                            <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
+                        </div>
+                        <button type="submit">Go</button>
+                    </div>
+                </div>
+                
+            </section>
         </section>
     </main>
     <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->

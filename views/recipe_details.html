@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="styles/recipe.css">
 </head>
 <body>
-    <nav>
-        <ul>
+    <header id="navbar-container">
+        <navbar :showsearch="true" />
+    </header>
+        <!-- <ul>
             <li class="logo"><a href="home.html"><img src="images/Logo.svg" alt="kitchen Quest"></a></li>
             <div class="items">
                 <li><a href="home.html">Home</a></li>
@@ -24,7 +26,7 @@
                 </div>
                 
             </li>
-        </ul>
+        </ul> -->
     </nav>
     <main>
         <div class="recipe-container">
@@ -40,6 +42,20 @@
         </div>
     
     </main>
+    <script type="importmap">
+        {
+            "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+            "navbar": "/views/scripts/components/navbar.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import { createApp } from 'vue';
+        import navbar from 'navbar';
+
+        createApp({}).component('navbar', navbar).mount('#navbar-container');
+    </script>
     
 </body>
 </html>

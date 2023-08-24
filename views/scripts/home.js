@@ -1,4 +1,4 @@
 import { createApp } from 'vue';
 import navbar from 'navbar';
 
-createApp(navbar).mount('#navbar');
+createApp({}).component('navbar', navbar).mount('#navbar-container');

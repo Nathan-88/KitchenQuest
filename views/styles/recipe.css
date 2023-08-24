@@ -71,7 +71,6 @@ nav ul .search-icon .icon{
     text-align: center;
     background: var(--red-color);
     border-radius: 200px 4px 4px 4px;
-
 }
 
 nav ul .search-icon span{
@@ -88,13 +87,24 @@ nav ul .search-icon span img{
     color: var(--white);
 }
 
+div.recipe{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 div.recipe .recipe-image {
+    position: relative;
     padding: 20px;
     margin: 10px 20px;
 }
 div.recipe .recipe-image img{
     width: 100%;
-    height: 600px;
+    height: auto;
+    max-width: 1200px;
+    /* object-fit: cover; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

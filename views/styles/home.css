@@ -293,7 +293,6 @@ section.trending .trending-recipe{
     width: 70%;
     height: 240px;
     border-radius: 100px 0px 100px 0px;
-    background: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -302,6 +301,9 @@ section.trending .trending-recipe{
     position: relative;
     margin-top: 50px;
     margin-inline: auto;
+}
+.trending-recipe:nth-child(odd){
+    background-color: white;
 }
 div.recipe-content{
     margin-top: 70px;

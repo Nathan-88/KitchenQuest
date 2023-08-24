@@ -32,17 +32,20 @@ header {
     justify-content: space-around;
     align-items: center;
     gap: 86px;
-    color: #333333;
     font-family: Poppins;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
     /* line-height: 140%; 33.6px */
 }
+#navbar a{
+    color: var(--grayscale-50);
+    text-decoration: none;
+}
 .red_box{
     width: 30vw;
     height: 600px;
-    background-color: #FD043C;
+    background-color: var(--red-color);
     flex-shrink: 0;
 }
 .shadow_heading{
@@ -60,18 +63,18 @@ header {
     flex-shrink: 0;
     padding: 30px;
 }
-.hero-text {
-    color: #261A5A;
-    font-family: Poppins;
+.hero-text-container {
+    color: var(--blue-theme-color);
+    font-family: var(--primary-font);
     font-size: 50px;
     font-style: normal;
     font-weight: 700;
-    /* line-height: 160%; 112px */
+    line-height: 90%;
     letter-spacing: -4.1px;
     width: 80%;
     margin-left: 100px;
     position: relative;
-    top: -90px;
+    top: -40px;
 }
 .hero-text:nth-child(4){
     top: -120px;
@@ -108,7 +111,7 @@ div.search {
     box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10);
     /* positioning it using its base position, which is down */
     position: relative;
-    top: -120px;
+    top: 0px;
 }
 /* div.search:has(input:focus-visible){
     border-width: 1px;
@@ -132,12 +135,13 @@ div.search input[type=text]:focus-visible {
 div.search button{
     grid-column: 3/4;
     border-radius: 200px 4px 4px 4px;
-    background: #FD043C;
+    background: var(--red-color);
 }
-main {
-    margin-inline: 20px;
-}
+
 /* MAin Content */
+main {
+    margin-inline: 30px;
+}
 
 /* Random Section */
 section.random{
@@ -146,27 +150,28 @@ section.random{
     margin-top: 20px;
 }
 section.random div.quote{
-    /* background-color: blue; */
-    width: 50%;
+    /* background-color: green; */
+    width: 45%;
     grid-column: 1/2;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 30px;
+    gap: 10px;
     align-self: center;
 }
 div.quote .red-bar{
-    background: #FD043C;
+    background: var(--red-color);
     display: inline-block;
-    width: 15px;
+    width: 10px;
     height: 45px;
     flex-shrink: 0;
 }
 div.quote p {
-    width: 28ch;
-    color: #261A5A;
+    width: 25ch;
+    color: var(--blue-theme-color);
     font-weight: 600;
     letter-spacing: -1.1px;
+    /* background-color: blue; */
 }
 section.random div.quote-two{
     grid-column: 2/3;
@@ -176,7 +181,7 @@ section.random div.quote-two{
     flex-direction: column;
 }
 div.quote-two h3{
-    color: #261A5A;
+    color: var(--blue-theme-color);
     font-weight: 600;
     text-align: right;
     font-size: 30px;
@@ -185,7 +190,7 @@ div.quote-two h3{
 }
 div.quote-two p{
     width: 43ch;
-    color: #727070;
+    color: var(--hash-color);
     text-align: right;
     align-self: flex-end;
     font-weight: 400;
@@ -195,11 +200,77 @@ div.quote-two p{
 /* Recipe Section */
 section.recipes {
     display: grid;
-    grid-template-rows: 0.5fr 2.5fr;
+    grid-template-rows: 50px 2.5fr;
     grid-template-columns: 1fr;
-    margin-top: 20px;
+    margin: 50px 0;
 }
 section.recipes h2{
     grid-row: 1/2;
     justify-self: end;
+    height: 30px;
+}
+section.recipe-display{
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 350px;
+}
+section.recipes .random-recipe-image{
+    width: 375px;
+    height: 338px;
+    flex-shrink: 0;
+    background: url('../images/image-1d\ 1.png');
+    background-color: var(--background-color);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    grid-column: 1/2;
+}
+div.recipe-container{
+    /* grid-column: 2/3; */
+    display: grid;
+    grid-template-rows: 290px 1fr;
+    width: 100%;
+    justify-content: end;
+}
+img.recipe-image{
+    height: 100%;
+    width: 300px;
+}
+div.recipe-container .recipe-content-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 300px;
+}
+div.recipe-container div.recipe-description {
+    grid-column: 1/4;
+    display: grid;
+    grid-template-rows: 20px 50px;
+    grid-template-columns: 1fr;
+    background-color: white;
+    height: 52px;
+}
+div.recipe-description h3{
+    padding-inline: 10px;
+    font-size: 12px;
+}
+div.recipe-description p{
+    padding-inline: 10px;
+    font-size: 10px;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* background-color: aqua; */
+}
+div.recipe-container button{
+    height: 52px;
+    width: 100%;
+    background-color: var(--red-color);
+    color: white;
+    font-style: normal;
+    border-style: none;
 }

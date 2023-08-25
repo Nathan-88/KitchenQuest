@@ -114,22 +114,30 @@ div.search button{
 
 /* MAin Content */
 main {
-    margin-inline: 30px;
+    padding-inline: 5px;
+    min-width: 80%;
+}
+@media(min-width: 500px) {
+    main {
+        padding-inline: 30px;
+    }
 }
 
 /* Random Section */
 section.random{
+    min-height: 90px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-rows: auto;
     margin-top: 20px;
 }
 section.random div.quote{
     /* background-color: green; */
-    width: 45%;
-    grid-column: 1/2;
+    width: 100%;
+    /* grid-column: 1/2; */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 10px;
     align-self: center;
 }
@@ -148,11 +156,12 @@ div.quote p {
     /* background-color: blue; */
 }
 section.random div.quote-two{
-    grid-column: 2/3;
-    width: 70%;
+    /* grid-column: 2/3; */
+    width: 100%;
     justify-self: end;
     display: flex;
     flex-direction: column;
+    /* padding-left: 100px; */
 }
 div.quote-two h3{
     color: var(--blue-theme-color);
@@ -163,7 +172,7 @@ div.quote-two h3{
     letter-spacing: -2.1px;
 }
 div.quote-two p{
-    width: 43ch;
+    max-width: 43ch;
     color: var(--hash-color);
     text-align: right;
     align-self: flex-end;
@@ -175,20 +184,24 @@ div.quote-two p{
 section.recipes {
     display: grid;
     grid-template-rows: 50px 2.5fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(40px, 1fr);
     margin: 50px 0;
 }
 section.recipes h2{
     grid-row: 1/2;
-    justify-self: end;
+    justify-self: center;
     height: 30px;
+    width: 100%;
+    text-align: right;
 }
 section.recipe-display{
     grid-row: 2/3;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    justify-items: center;
+    row-gap: 30px;
     width: 100%;
-    height: 350px;
+    min-height: 350px;
 }
 section.recipes .random-recipe-image{
     width: 375px;
@@ -199,14 +212,14 @@ section.recipes .random-recipe-image{
     background-size: cover;
     background-repeat: no-repeat;
     display: inline-block;
-    grid-column: 1/2;
+    /* grid-column: 1/2; */
 }
 div.recipe-container{
     /* grid-column: 2/3; */
     display: grid;
     grid-template-rows: 290px 1fr;
+    justify-items: center;
     width: 100%;
-    justify-content: end;
 }
 img.recipe-image{
     height: 100%;
@@ -251,16 +264,19 @@ div.recipe-container button{
 /* Trending Section */
 section.trending{
     width: 100%;
-    height: 380px;
+    min-height: 380px;
     display: grid;
     grid-template-rows: 70px 1fr;
     grid-template-columns: 1fr;
+    row-gap: 30px;
 }
 section.trending-list{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    row-gap: 50px;
     width: 100%;
-    height: 350px;
+    min-height: 350px;
     margin-bottom: 30px;
 }
 section.trending .trending-recipe{
@@ -300,7 +316,7 @@ div.trending-recipe p{
 /* Explore Section */
 section.explore{
     width: 100%;
-    height: 450px;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -315,11 +331,11 @@ section.explore h2{
     /* background-color: green; */
 }
 section.explore .explore-list{
-    width: 80%;
-    height: 300px;
+    min-width: 80%;
+    min-height: 300px;
     margin-inline: auto;
     display: flex;
-    flex-direction: row;
+    flex-flow: wrap row;
     justify-content: center;
 }
 div.explore-list img{

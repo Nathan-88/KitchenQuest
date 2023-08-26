@@ -4,29 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles/shopping_list.css"/>
+        <link rel="stylesheet" href="styles/common.css">
         <title>Users shopping List</title>
     </head>
     <!--end of head-->
     <body>
-        <!--Binning of header-->
-        <header id="header">
-                <img id="logo" src="images/Logo.svg" alt="Kitchen quest Logo"/>
-                <ul class="navbar">
-                    <li>Home</li>
-                    <li>Recipees</li>
-                    <li>Trending</li>
-                    <li>About</li>
-                </ul>
-                <!--Beginning of search box container-->
-                <form action="placeholder for search queries" method="get">
-                    <div id="search-container">
-                        <input type="text" id="search-input" name="search input" placeholder="Enter search..."/>
-                        <!-- <input type="icon" id="search-icon-container" name="search" placeholder=""> -->
-                        <div type="icon" id="search-icon-container" name="search" placeholder=""></div>
-                        <img src="images/circum_search.svg" alt="search image"/>
-                    </div>
-                </form>
-                <!--End of search box-->
+        <!--Beginning of header-->
+        <header id="navbar-container">
+            <navbar :showsearch="true" />
         </header>
         <!--end of header-->
 
@@ -82,6 +67,16 @@
         <div id="back-home">
             <p>Back to Home</p>
         </div>
+        <script type="importmap">
+        {
+            "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+            "navbar": "/views/scripts/components/navbar.js",
+            "footnote": "/views/scripts/components/footnote.js"
+            }
+        }
+        </script>
+        <script type="module" src="scripts/common.js"></script>
     </body>
     <!--end of body-->
 </html>

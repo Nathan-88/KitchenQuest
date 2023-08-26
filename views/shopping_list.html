@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/shopping_list.css"/>
+        <link rel="stylesheet" href="styles/common.css">
+        <title>Users shopping List</title>
+    </head>
+    <!--end of head-->
+    <body>
+        <!--Beginning of header-->
+        <header id="navbar-container">
+            <navbar :showsearch="true" />
+        </header>
+        <!--end of header-->
+
+        <!--Beginning of image container-->
+        <div id="image-container">
+            <img src="images/Rectangle 30.png" alt="food image"/>
+            <h1>Shopping List</h1>
+            <p>Spaghetti</p>
+            <div id="left-transparent-box">
+                <img src="images/Vector.svg" alt="print button icon"/>
+                <p>Print</p>
+            </div>
+            <div id="right-transparent-box">
+                <p>Share</p>
+                <img src="images/mdi-light_share.svg" alt="share button icon"/>
+            </div>
+        </div>
+        <!--End of image container-->
+
+        <!--The Beginning of mid section container for recipee list and delete icon-->
+        <div id="mid-section-container">
+            <ul>
+                <li id="list-text">List</li>
+                <li>Recipee</li>
+                <li id="Trash-list">Trash List</li>
+            </ul>
+        </div>
+        <!--End of mid section container -->
+        <div id="recipee-list-container">
+            <form action="placeholder for endpoint url">
+                <input type="checkbox" name="recipee checkbox" id="my-checkbox"/>
+                <label for="my-checkbox">vitae mi 3 buba</label>
+                <img src="images/fluent_delete-20-regular.svg" alt="delete button icon"/>
+                <!--ALL Below duplicates to be removed later when replaced with dynnamic cotents (This is to test if the box will expand to take more dynamic contents)-->
+                <input type="checkbox" name="recipee checkbox" id="my-checkbox"/>
+                <label for="my-checkbox">vitae mi 3 buba</label>
+                <img src="images/fluent_delete-20-regular.svg" alt="delete button icon"/>
+                <input type="checkbox" name="recipee checkbox" id="my-checkbox"/>
+                <label for="my-checkbox">vitae mi 3 buba</label>
+                <img src="images/fluent_delete-20-regular.svg" alt="delete button icon"/>
+                <input type="checkbox" name="recipee checkbox" id="my-checkbox"/>
+                <label for="my-checkbox">vitae mi 3 buba</label>
+                <img src="images/fluent_delete-20-regular.svg" alt="delete button icon"/>
+                <input type="checkbox" name="recipee checkbox" id="my-checkbox"/>
+                <label for="my-checkbox">vitae mi 3 buba</label>
+                <img src="images/fluent_delete-20-regular.svg" alt="delete button icon"/>
+            </form>
+        </div>
+        <div id="view-next-list">
+            <p>View Next List</p>
+            <img src="images/fluent_next-28-regular.svg" alt="Next list button"/>
+        </div>
+        <div id="back-home">
+            <p>Back to Home</p>
+        </div>
+        <script type="importmap">
+        {
+            "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+            "navbar": "/views/scripts/components/navbar.js",
+            "footnote": "/views/scripts/components/footnote.js"
+            }
+        }
+        </script>
+        <script type="module" src="scripts/common.js"></script>
+    </body>
+    <!--end of body-->
+</html>

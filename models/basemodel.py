@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """defining the base attributes for all schemas"""
 from datetime import datetime
-from mongoengine import *
+from mongoengine import DateTimeField
 
 
 class BaseModel:

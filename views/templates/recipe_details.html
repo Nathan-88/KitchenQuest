@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recipe page</title>
+    <link rel="stylesheet" href="/static/styles/common.css">
+    <link rel="stylesheet" href="/static/styles/recipe.css">
+</head>
+<body>
+    <!--Beginning of header-->
+    <header id="navbar-container">
+        <navbar :showsearch="true" />
+    </header>
+    <!--end of header-->
+
+    <main>
+        <div class="recipe-container">
+            <div class="recipe_image">
+            <img class="recipe-image" src="/static/images/Rectangle 30.png" alt="recipe">
+            </div>
+            <div class="recipe-summary">
+                <h1 class="recipe-title"></h1>
+                <p></p>
+            </div>
+            <div class="box"></div>
+            <div class="savedrecipebox"></div>
+        </div>
+    </main>
+
+    <!--Beginning of footer-->
+    <footer id="footer-el">
+        <footnote />
+    </footer>
+    <!-- end of footer -->
+    <script type="importmap">
+        {
+            "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+            "navbar": "/static/scripts/components/navbar.js",
+            "footnote": "/static/scripts/components/footnote.js"
+            }
+        }
+    </script>
+    <script type="module" src="/static/scripts/common.mjs"></script>
+    
+</body>
+</html>

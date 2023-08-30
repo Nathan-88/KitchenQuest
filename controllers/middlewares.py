@@ -2,7 +2,6 @@
 import requests
 
 
-SPOONACULAR_API_KEY = '8ca7176f9710474688667f16c6faee9e'
 
 
 def find_by_ingredients(ingredients):

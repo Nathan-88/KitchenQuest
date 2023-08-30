@@ -1,5 +1,13 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
+
+// let searchText
+
+console.log(searchText)
+
+const getRecipe = () => {
+
+}
 </script>
 
 <template>
@@ -16,8 +24,8 @@ import Navbar from '../components/Navbar.vue';
         <p class="hero-text">the World</p>
       </div>
       <div class="search">
-        <input type="text" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
-        <button type="submit">Go</button>
+        <input :vmodel="searchText" type="text" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
+        <button @click="getRecipe" type="submit">Go</button>
       </div>
     </section>
     <section class="red_box"></section>

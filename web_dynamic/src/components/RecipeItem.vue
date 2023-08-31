@@ -16,7 +16,7 @@ summary = summary.replace(/<\/b>/g, "")
         <div class="recipe-summary">
             <h3>{{ props.recipeTitle }}</h3>
             <!-- <div class="likes"></div> -->
-            <p class="summary"><b>Instructions:</b> {{ summary }}</p>
+            <p class="summary"><b>Summary:</b> {{ summary }}</p>
         </div>
     </section>
 </template>

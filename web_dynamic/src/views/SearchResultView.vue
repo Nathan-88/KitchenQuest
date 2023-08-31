@@ -34,8 +34,9 @@ watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
 // show more details about a recipe
 // listen for a click event to trigger the route
 const moreDetails = (recipeObj) => {
+    const recipeJson = JSON.stringify(recipeObj)
     console.log(recipeObj);
-    router.push({name: "Recipepage", params: {recipe: recipeObj}})
+    router.push({name: "RecipePage", params: {recipe: recipeJson}})
 }
 </script>
 

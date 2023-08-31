@@ -1,12 +1,12 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
-import { ref } from 'vue';
-import router from '../router/index'
 
+// let searchText
 
-const searchText = ref("")
+console.log(searchText)
+
 const getRecipe = () => {
-    router.push({name: 'search', params: { ingredient: searchText.value }})
+
 }
 </script>
 
@@ -14,9 +14,9 @@ const getRecipe = () => {
   <!-- Hero Section -->
   <header>
     <section class="nav-container">
-      <section id="navbar-container">
+      <nav id="navbar-container">
         <Navbar />
-      </section>
+      </nav>
       <h1 class="shadow_heading">request</h1>
       <div class="hero-text-container">
         <p class="hero-text">Discover Recipes for</p>
@@ -24,7 +24,7 @@ const getRecipe = () => {
         <p class="hero-text">the World</p>
       </div>
       <div class="search">
-        <input v-model="searchText" @keypress.enter.prevent="getRecipe" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
+        <input :vmodel="searchText" type="text" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
         <button @click="getRecipe" type="submit">Go</button>
       </div>
     </section>
@@ -37,11 +37,11 @@ const getRecipe = () => {
     <section class="random">
       <div class="quote">
         <span class="red-bar"></span>
-        <p>Let food be thy medicine and medicine be thy food</p>
+        <p>The internet famous always pan just got a huge update</p>
       </div>
       <div class="quote-two">
         <h3>the world</h3>
-        <p>There's nothing in the world that a good food cannot fix. A recipe has no soul, you, as the cook must bring soul to it.</p>
+        <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt vel non quam. Nullam</p>
       </div>
     </section>
     <!-- Recipe Section -->

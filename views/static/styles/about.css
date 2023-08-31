@@ -1,0 +1,57 @@
+#about-top h1 {
+    color: #261A5A;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 260%; /* 128px */
+    letter-spacing: -1.4px;
+    margin-left: 14px;
+    bottom: 0px;
+    padding: 10px 10px 0px 50px;  
+}
+
+#about-top div {
+    width: flex;
+    height: 500px;
+    margin: 0;
+    background: white;
+    position: relative;
+}
+
+#about-top div img {
+    width: 500px;
+    height: 436px;
+    margin: 30px;
+}
+
+div#about div{
+    background: #261A5A;
+    position: absolute;
+    top: 90px;
+    margin-bottom: 0px;
+    left: 550px;
+    margin: 0px;
+    padding: 10px 10px 10px 10px
+    width: 50px;
+    height: 50px;
+}
+#about-top div h2 {
+    color: white;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 128px */
+    letter-spacing: -0.4px;
+    padding: 10px;
+}
+
+div#about p{
+    font-family: Poppins;
+    font-size: 12px;
+    position: absolute;
+    top: 150px;
+    left: 550px;
+    width: 400px;
+}

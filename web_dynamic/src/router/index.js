@@ -20,7 +20,7 @@ const router = createRouter({
       path: '/Recipepage',
       name: 'RecipePage',
       component: RecipePageView,
-      props: true
+      props: route => ({query: route.query.recipe})
     },
     {
       path: '/about',

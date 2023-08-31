@@ -2,6 +2,7 @@
 import axios from 'axios'
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
+import router from '../router/index'
 import { ref, onMounted, watch } from 'vue';
 
 const props = defineProps({
@@ -13,7 +14,8 @@ const fetchRecipe = (ingredient) => {
         url: 'https://api.spoonacular.com/recipes/complexSearch',
         params: {
             apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
-            ingredients: ingredient,
+            includeIngredients: ingredient,
+            instructionsRequired: true,
             sort: 'random',
             addRecipeInformation: true,
             addRecipeNutrition: true,
@@ -22,12 +24,19 @@ const fetchRecipe = (ingredient) => {
         }
     }).then((response) =>  {
         recipes.value = response.data['results']
-        // console.log('state:', recipes.value)
+        console.log('state:', recipes.value)
     })
     .catch((error) => console.error(error))
 }
 onMounted(() => fetchRecipe(props.ingredient))
 watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
+
+// show more details about a recipe
+// listen for a click event to trigger the route
+const moreDetails = (recipeObj) => {
+    console.log(recipeObj);
+    router.push({name: "RecipepageView", params: {recipe: recipeObj}})
+}
 </script>
 
 <template>
@@ -38,9 +47,9 @@ watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
             <RecipeItem v-for="recipe in recipes"
                         :recipeTitle="recipe.title"
                         :imageSrc="recipe.image"
-                        :missed="recipe.missedIngredientCount"
-                        :used="recipe.usedIngredientCount"
+                        :summary="recipe.summary"
                         :key="recipe.title"
+                        @click="() => moreDetails(recipe)"
             />
         </section>
     </main>

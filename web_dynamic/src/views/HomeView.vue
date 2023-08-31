@@ -14,9 +14,9 @@ const getRecipe = () => {
   <!-- Hero Section -->
   <header>
     <section class="nav-container">
-      <nav id="navbar-container">
+      <div id="navbar-container">
         <Navbar />
-      </nav>
+      </div>
       <h1 class="shadow_heading">request</h1>
       <div class="hero-text-container">
         <p class="hero-text">Discover Recipes for</p>

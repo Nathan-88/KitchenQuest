@@ -1,5 +1,9 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
+
+const props = defineProps({
+  recipe: Object
+})
 </script>
 
 <template>

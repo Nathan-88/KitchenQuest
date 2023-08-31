@@ -1,12 +1,12 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
+import { ref } from 'vue';
+import router from '../router/index'
 
-// let searchText
 
-console.log(searchText)
-
+const searchText = ref("")
 const getRecipe = () => {
-
+    router.push({name: 'search', params: { ingredient: searchText.value }})
 }
 </script>
 
@@ -24,7 +24,7 @@ const getRecipe = () => {
         <p class="hero-text">the World</p>
       </div>
       <div class="search">
-        <input :vmodel="searchText" type="text" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
+        <input v-model="searchText" @keypress.enter.prevent="getRecipe" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
         <button @click="getRecipe" type="submit">Go</button>
       </div>
     </section>

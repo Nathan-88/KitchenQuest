@@ -1,8 +1,17 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import router from '../router/index'
+import { ref } from 'vue';
+
+
 const props = defineProps({
   showsearch: Boolean
 })
+
+const searchText = ref("")
+const getRecipe = () => {
+    router.push({name: 'search', params: { ingredient: searchText.value }})
+}
 </script>
 
 <template>
@@ -15,8 +24,8 @@ const props = defineProps({
         <li><RouterLink to="/saved_recipes">Favourites</RouterLink></li>
       </ul>
       <div v-if="props.showsearch" class="nav-search">
-          <input type="text" name="nav_search" id="nav-search" placeholder="Search for Recipes">
-          <button type="submit"><img class="icon" src="../assets/images/search.svg" alt="search"></button>
+          <input v-model="searchText" @keypress.enter.prevent="getRecipe" type="text" name="nav_search" id="nav-search" placeholder="Search for Recipes">
+          <button @click="getRecipe" type="submit"><img class="icon" src="../assets/images/search.svg" alt="search"></button>
       </div>
   </nav>
 </template>

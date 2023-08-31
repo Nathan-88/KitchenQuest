@@ -10,14 +10,18 @@ const props = defineProps({
 const recipes = ref(null)
 const fetchRecipe = (ingredient) => {
     axios({
-        url: 'https://api.spoonacular.com/recipes/findByIngredients',
+        url: 'https://api.spoonacular.com/recipes/complexSearch',
         params: {
             apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
             ingredients: ingredient,
+            sort: 'random',
+            addRecipeInformation: true,
+            addRecipeNutrition: true,
+            sortDirection: 'asc',
             number: 10
         }
     }).then((response) =>  {
-        recipes.value = response.data
+        recipes.value = response.data['results']
         // console.log('state:', recipes.value)
     })
     .catch((error) => console.error(error))

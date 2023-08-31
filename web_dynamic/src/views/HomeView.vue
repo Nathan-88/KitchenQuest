@@ -1,5 +1,5 @@
 <script setup>
-import Navbar from '../components/Navbar.vue';
+import Navbar from '../components/Navbar.vue'
 import { ref } from 'vue';
 import router from '../router/index'
 
@@ -41,7 +41,7 @@ const getRecipe = () => {
       </div>
       <div class="quote-two">
         <h3>the world</h3>
-        <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt vel non quam. Nullam</p>
+        <p>people find themselves with a collection of ingredients but lack the inspiration to create a meal. KitchenQuest will bridge that gap by suggesting recipes that can be prepared using the ingredients the user already has</p>
       </div>
     </section>
     <!-- Recipe Section -->
@@ -118,6 +118,7 @@ const getRecipe = () => {
 </template>
 
 <style scoped>
+
 header {
     width: 100%;
     display: flex;
@@ -210,10 +211,11 @@ div.search {
 /* div.search:has(input:focus-visible){
     border-width: 1px;
 } */
-div.search button,
+
 div.search input{
     height: 100%;
     border-width: 0;
+    outline: none;
     font-size: 18px ;
 }
 div.search input{
@@ -230,6 +232,9 @@ div.search button{
     grid-column: 3/4;
     border-radius: 200px 4px 4px 4px;
     background: var(--red-color);
+    cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 /* MAin Content */

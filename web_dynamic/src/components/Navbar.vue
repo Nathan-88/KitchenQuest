@@ -101,6 +101,8 @@ const getRecipe = () => {
     background: var(--red-color);
     border-radius: 200px 4px 4px 4px;
     border-style: none;
+    cursor: pointer;
+    outline: none;
 }
 
 .nav-search img.icon{

@@ -2,23 +2,28 @@
 import axios from 'axios'
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
-import { ref } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
 const props = defineProps({
     ingredient: String
 });
-const state = ref({
-    recipes: []
-})
-axios({
-    url: 'https://api.spoonacular.com/recipes/findByIngredients',
-    params: {
-        apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
-        ingredients: props.ingredient,
-        number: 10
-    }
-}).then((response) =>  state.value.recipes = response.data )
-.catch((error) => console.error(error))
+const recipes = ref(null)
+const fetchRecipe = (ingredient) => {
+    axios({
+        url: 'https://api.spoonacular.com/recipes/findByIngredients',
+        params: {
+            apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
+            ingredients: ingredient,
+            number: 10
+        }
+    }).then((response) =>  {
+        recipes.value = response.data
+        // console.log('state:', recipes.value)
+    })
+    .catch((error) => console.error(error))
+}
+onMounted(() => fetchRecipe(props.ingredient))
+watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
 </script>
 
 <template>
@@ -26,7 +31,7 @@ axios({
     <main>
         <h1>Results for {{ props.ingredient }}</h1>
         <section class="container">
-            <RecipeItem v-for="recipe in state.recipes"
+            <RecipeItem v-for="recipe in recipes"
                         :recipeTitle="recipe.title"
                         :imageSrc="recipe.image"
                         :missed="recipe.missedIngredientCount"

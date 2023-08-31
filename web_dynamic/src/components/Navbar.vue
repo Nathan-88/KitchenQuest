@@ -35,6 +35,7 @@ const getRecipe = () => {
     width: 100%;
 }
 .navbar {
+    grid-column: 1/5;
     display: flex;
     /* grid-template-columns: repeat(3, 1fr); */
     justify-content: space-around;

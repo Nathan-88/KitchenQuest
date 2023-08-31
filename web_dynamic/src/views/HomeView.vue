@@ -14,9 +14,9 @@ const getRecipe = () => {
   <!-- Hero Section -->
   <header>
     <section class="nav-container">
-      <nav id="navbar-container">
+      <section id="navbar-container">
         <Navbar />
-      </nav>
+      </section>
       <h1 class="shadow_heading">request</h1>
       <div class="hero-text-container">
         <p class="hero-text">Discover Recipes for</p>
@@ -37,11 +37,11 @@ const getRecipe = () => {
     <section class="random">
       <div class="quote">
         <span class="red-bar"></span>
-        <p>The internet famous always pan just got a huge update</p>
+        <p>Let food be thy medicine and medicine be thy food</p>
       </div>
       <div class="quote-two">
         <h3>the world</h3>
-        <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt vel non quam. Nullam</p>
+        <p>There's nothing in the world that a good food cannot fix. A recipe has no soul, you, as the cook must bring soul to it.</p>
       </div>
     </section>
     <!-- Recipe Section -->

@@ -42,9 +42,8 @@ const getRecipe = () => {
       <div class="quote-two">
         <h3>the world</h3>
         <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt vel non quam. Nullam</p>
-      </div>
-    </section>
-    <!-- Recipe Section -->
+>
+Section -->
     <section class="recipes">
       <h2>Recipes</h2>
       <section class="recipe-display">

@@ -73,7 +73,7 @@ const getRecipe = () => {
     width: 300px;
     display: flex;
     background: var(--white);
-    box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: 10px 15px 10px -10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     background-color: white;
 }

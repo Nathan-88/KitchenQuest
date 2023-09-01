@@ -36,6 +36,7 @@ section.recipe-item img{
     height: 90%;
     margin: auto;
     border-radius: 15px;
+    object-fit: cover;
 }
 section.recipe-item h3{
     font-size: 18px;

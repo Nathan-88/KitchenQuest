@@ -5,8 +5,7 @@ const props = defineProps({
     summary: String
 })
 
-let summary = props.summary.replace(/<b>/g, "")
-summary = summary.replace(/<\/b>/g, "")
+let summary = props.summary.replace(/<\/?[^>]+(>|$)/g, "")
 </script>
 
 <template>

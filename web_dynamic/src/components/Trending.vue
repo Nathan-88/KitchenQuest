@@ -57,7 +57,7 @@ section.trending-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-template-rows: auto;
-    row-gap: 50px;
+    row-gap: 80px;
     width: 100%;
     min-height: 350px;
     margin-bottom: 30px;
@@ -74,6 +74,11 @@ section.trending .trending-recipe{
     position: relative;
     margin-top: 50px;
     margin-inline: auto;
+}
+@media(max-width: 400px){
+    section.trending .trending-recipe{
+        width: 65%;
+    }
 }
 .trending-recipe:nth-child(odd){
     background-color: white;

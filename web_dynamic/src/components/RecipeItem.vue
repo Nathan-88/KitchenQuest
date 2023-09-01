@@ -24,7 +24,7 @@ summary = summary.replace(/<\/b>/g, "")
 <style scoped>
 section.recipe-item{
     position: relative;
-    background-color: white;
+    /* background-color: white; */
     width: 100%;
     height: 250px;
     display: grid;
@@ -36,6 +36,7 @@ section.recipe-item img{
     width: 90%;
     height: 90%;
     margin: auto;
+    border-radius: 15px;
 }
 section.recipe-item h3{
     font-size: 18px;

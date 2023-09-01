@@ -5,23 +5,38 @@ import Navbar from '../components/Navbar.vue';
 import router from '../router/index'
 import { ref, onMounted, watch } from 'vue';
 
+// The ingredient props name should be changed to something more generic
+// because we are about to use it for cuisines too
 const props = defineProps({
     ingredient: String
 });
+
 const recipes = ref(null)
+
 const fetchRecipe = (ingredient) => {
+    // create a default params object
+    const params = {
+        apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
+        instructionsRequired: true,
+        sort: 'random',
+        addRecipeInformation: true,
+        addRecipeNutrition: true,
+        sortDirection: 'asc',
+        number: 10
+    }
+    // conditionally set the optional params for the api
+    if (ingredient.includes('cuisine')) {
+        const cuisine = ingredient.replace("cuisine", "")
+        params.cuisine = cuisine
+        console.log("Cuisines")
+    } else {
+        console.log("Ingredients")
+        params.includeIngredients = ingredient
+    }
+
     axios({
         url: 'https://api.spoonacular.com/recipes/complexSearch',
-        params: {
-            apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
-            includeIngredients: ingredient,
-            instructionsRequired: true,
-            sort: 'random',
-            addRecipeInformation: true,
-            addRecipeNutrition: true,
-            sortDirection: 'asc',
-            number: 10
-        }
+        params: params
     }).then((response) =>  {
         recipes.value = response.data['results']
         console.log('state:', recipes.value)

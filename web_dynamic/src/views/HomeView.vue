@@ -2,6 +2,7 @@
 import Navbar from '../components/Navbar.vue'
 import Explore from '../components/Explore.vue';
 import Trending from '../components/Trending.vue';
+import Diet from '../components/Diet.vue';
 import { ref } from 'vue';
 import router from '../router/index'
 
@@ -46,33 +47,8 @@ const getRecipe = () => {
         <p>people find themselves with a collection of ingredients but lack the inspiration to create a meal. KitchenQuest will bridge that gap by suggesting recipes that can be prepared using the ingredients the user already has</p>
       </div>
     </section>
-    <!-- Recipe Section -->
-    <section class="recipes">
-      <h2>Diet Recipes</h2>
-      <section class="recipe-display">
-        <div class="random-recipe-image"><!-- div for an image, check css --></div>
-        <div class="recipe-container">
-          <img class="recipe-image" src="../assets/images/vegetarian-diet.webp" alt="recipe name">
-          <div class="recipe-content-container">
-            <div class="recipe-description">
-              <h3>Vegetarian</h3>
-              <p>No ingredients may contain meat or meat by-products, such as bones or gelatin.</p>
-            </div>
-            <button type="submit">Go</button>
-          </div>
-        </div>
-        <div class="recipe-container">
-          <img class="recipe-image" src="../assets/images/ketogenic-diet.jpg" alt="recipe name">
-          <div class="recipe-content-container">
-            <div class="recipe-description">
-              <h3>Ketogenic</h3>
-              <p>The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients</p>
-            </div>
-            <button type="submit">Go</button>
-          </div>
-        </div>
-      </section>
-    </section>
+    <!-- Diet Recipe Section -->
+    <Diet />
     <!-- Trending Section -->
     <Trending />
     <!-- Explore Section -->
@@ -269,87 +245,7 @@ div.quote-two p{
 
 
 /* Recipe Section */
-section.recipes {
-    display: grid;
-    grid-template-rows: 50px 2.5fr;
-    grid-template-columns: minmax(40px, 1fr);
-    margin: 50px 0;
-}
-section.recipes h2{
-    grid-row: 1/2;
-    justify-self: center;
-    height: 30px;
-    width: 100%;
-    text-align: right;
-}
-section.recipe-display{
-    grid-row: 2/3;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-    justify-items: center;
-    row-gap: 30px;
-    width: 100%;
-    min-height: 350px;
-}
-section.recipes .random-recipe-image{
-    width: 375px;
-    height: 338px;
-    flex-shrink: 0;
-    background: url('../assets/images/image-1d 1.png');
-    background-color: var(--background-color);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: inline-block;
-    /* grid-column: 1/2; */
-}
-div.recipe-container{
-    /* grid-column: 2/3; */
-    display: grid;
-    grid-template-rows: 290px 1fr;
-    justify-items: center;
-    width: 100%;
-}
-img.recipe-image{
-    height: 100%;
-    width: 300px;
-}
-div.recipe-container .recipe-content-container{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 300px;
-}
-div.recipe-container div.recipe-description {
-    grid-column: 1/4;
-    display: grid;
-    grid-template-rows: 20px 50px;
-    grid-template-columns: 1fr;
-    background-color: white;
-    height: 52px;
-}
-div.recipe-description h3{
-    padding-inline: 10px;
-    font-size: 12px;
-}
-div.recipe-description p{
-    padding-inline: 10px;
-    font-size: 10px;
-    height: 30px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    /* background-color: aqua; */
-}
-div.recipe-container button{
-    height: 52px;
-    width: 100%;
-    background-color: var(--red-color);
-    color: white;
-    font-style: normal;
-    border-style: none;
-    cursor: pointer;
-}
+
 /* Trending Section */
 section.trending{
     width: 100%;
@@ -403,32 +299,5 @@ div.trending-recipe p{
     margin: auto;
 }
 /* Explore Section */
-section.explore{
-    width: 100%;
-    min-height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 30px;
-}
-section.explore h2{
-    width: 50%;
-    height: 70px;
-    margin-inline: auto;
-    /* background-color: green; */
-}
-section.explore .explore-list{
-    min-width: 80%;
-    min-height: 300px;
-    margin-inline: auto;
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: center;
-}
-div.explore-list img{
-    width: 300px;
-    height: 300px;
-}
+
 </style>

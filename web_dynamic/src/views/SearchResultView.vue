@@ -29,6 +29,10 @@ const fetchRecipe = (ingredient) => {
         const cuisine = ingredient.replace("cuisine", "")
         params.cuisine = cuisine
         console.log("Cuisines")
+    } else if (ingredient.includes('diet')) {
+        const diet = ingredient.replace("diet", "")
+        params.diet = diet
+        console.log("Diets")
     } else {
         console.log("Ingredients")
         params.includeIngredients = ingredient

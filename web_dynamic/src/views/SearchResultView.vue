@@ -47,6 +47,7 @@ const fetchRecipe = (ingredient) => {
     })
     .catch((error) => console.error(error))
 }
+// component lifecycle
 onMounted(() => fetchRecipe(props.ingredient))
 watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
 

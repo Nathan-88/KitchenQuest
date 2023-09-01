@@ -39,7 +39,7 @@ const fetchRecipe = (ingredient) => {
     }
 
     axios({
-        url: 'https://api.spoonacular.com/recipes/complexSearch',
+        url: import.meta.env.VITE_BASE_URL,
         params: params
     }).then((response) =>  {
         recipes.value = response.data['results']
@@ -47,6 +47,7 @@ const fetchRecipe = (ingredient) => {
     })
     .catch((error) => console.error(error))
 }
+// component lifecycle
 onMounted(() => fetchRecipe(props.ingredient))
 watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
 

@@ -34,6 +34,16 @@ const getDiet = (target) => {
             <button type="submit" data-diet="ketogenic diet">Go</button>
           </div>
         </div>
+        <div class="recipe-container">
+          <img class="recipe-image" src="../assets/images/ketogenic-diet.jpg" alt="recipe name">
+          <div class="recipe-content-container">
+            <div class="recipe-description">
+              <h3>Gluten-free</h3>
+              <p>The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients</p>
+            </div>
+            <button type="submit" data-diet="ketogenic diet">Go</button>
+          </div>
+        </div>
       </section>
     </section>
 </template>
@@ -55,19 +65,19 @@ section.recipes h2{
 section.recipe-display{
     grid-row: 2/3;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-items: center;
     row-gap: 30px;
     width: 100%;
     min-height: 350px;
 }
 section.recipes .random-recipe-image{
-    width: 375px;
+    width: 300px;
     height: 338px;
     flex-shrink: 0;
     background: url('../assets/images/image-1d 1.png');
     background-color: var(--background-color);
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
     /* grid-column: 1/2; */

@@ -1,33 +1,43 @@
+<script setup>
+import { ref } from 'vue';
+import axios from 'axios'
+
+
+const trending = ref(null)
+const params = {
+    apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
+    instructionsRequired: true,
+    sort: 'random',
+    addRecipeInformation: true,
+    addRecipeNutrition: true,
+    sortDirection: 'asc',
+    number: 5
+}
+
+const fixSummary = (summary) => {
+    let finalSummary = summary.replace(/<\/?[^>]+(>|$)/g, "")
+    return finalSummary
+}
+
+axios({
+    url: import.meta.env.VITE_BASE_URL,
+    params: params,
+}).then((response) => {
+    trending.value = response.data['results']
+    console.log('trending:', trending.value)
+}).catch((error) => console.error(error))
+
+</script>
+
 <template>
   <section class="trending">
         <h2>Trending</h2>
         <section class="trending-list">
-            <div class="trending-recipe">
-                <img src="../assets/images/image-4.png" alt="recipe name">
+            <div v-for="recipe in trending" class="trending-recipe">
+                <img :src="recipe.image" :alt="recipe.title">
                 <div class="recipe-content">
-                    <h3>Yoruba Poraro</h3>
-                    <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
-                </div>
-            </div>
-            <div class="trending-recipe">
-                <img src="../assets/images/image-4.png" alt="recipe name">
-                <div class="recipe-content">
-                    <h3>Yoruba Poraro</h3>
-                    <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
-                </div>
-            </div>
-            <div class="trending-recipe">
-                <img src="../assets/images/image-4.png" alt="recipe name">
-                <div class="recipe-content">
-                    <h3>Yoruba Poraro</h3>
-                    <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
-                </div>
-            </div>
-            <div class="trending-recipe">
-                <img src="../assets/images/image-4.png" alt="recipe name">
-                <div class="recipe-content">
-                    <h3>Yoruba Poraro</h3>
-                    <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
+                    <h3>{{ recipe.title }}</h3>
+                    <p>{{ fixSummary(recipe.summary) }}</p>
                 </div>
             </div>
         </section>
@@ -53,8 +63,8 @@ section.trending-list{
     margin-bottom: 30px;
 }
 section.trending .trending-recipe{
-    width: 70%;
-    height: 240px;
+    width: 90%;
+    height: 250px;
     border-radius: 100px 0px 100px 0px;
     display: flex;
     flex-direction: column;
@@ -75,15 +85,23 @@ div.trending-recipe img{
     width: 200px;
     height: 200px;
     position: absolute;
-    top: -80px;
+    top: -100px;
+    border-radius: 50%;
+    box-shadow: 10px 15px 20px -10px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
 }
 div.trending-recipe h3{
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
 }
 div.trending-recipe p{
-    font-size: 12px;
+    font-size: 10px;
     width: 80%;
     margin: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 </style>

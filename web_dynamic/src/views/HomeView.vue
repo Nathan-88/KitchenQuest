@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from '../components/Navbar.vue'
+import Explore from '../components/Explore.vue';
 import { ref } from 'vue';
 import router from '../router/index'
 
@@ -106,14 +107,7 @@ const getRecipe = () => {
         </section>
     </section>
     <!-- Explore Section -->
-    <section class="explore">
-        <h2>Explore</h2>
-        <div class="explore-list">
-            <img src="../assets/images/Rectangle 25.png" alt="cuisine name">
-            <img src="../assets/images/Rectangle 25.png" alt="cuisine name">
-            <img src="../assets/images/Rectangle 25.png" alt="cuisine name">
-        </div>
-    </section>
+    <Explore />
   </main>
 </template>
 

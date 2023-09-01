@@ -56,7 +56,7 @@ const moreDetails = (recipeObj) => {
     </main>
 </template>
 
-<style>
+<style scoped>
 h1{
     padding-inline-start: 20px;
     margin: 30px;

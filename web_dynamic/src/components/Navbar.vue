@@ -30,7 +30,7 @@ const getRecipe = () => {
   </nav>
 </template>
 
-<style>
+<style scoped>
 #navbar{
     width: 100%;
 }

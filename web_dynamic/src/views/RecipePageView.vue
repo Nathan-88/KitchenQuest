@@ -1,6 +1,5 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
-import Summary from '../components/Summary.vue'
 
 const props = defineProps({
   recipe: String

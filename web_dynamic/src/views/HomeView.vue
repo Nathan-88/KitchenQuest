@@ -1,5 +1,7 @@
 <script setup>
 import Navbar from '../components/Navbar.vue'
+import Explore from '../components/Explore.vue';
+import Trending from '../components/Trending.vue';
 import { ref } from 'vue';
 import router from '../router/index'
 
@@ -14,9 +16,9 @@ const getRecipe = () => {
   <!-- Hero Section -->
   <header>
     <section class="nav-container">
-      <nav id="navbar-container">
+      <div id="navbar-container">
         <Navbar />
-      </nav>
+      </div>
       <h1 class="shadow_heading">request</h1>
       <div class="hero-text-container">
         <p class="hero-text">Discover Recipes for</p>
@@ -46,25 +48,25 @@ const getRecipe = () => {
     </section>
     <!-- Recipe Section -->
     <section class="recipes">
-      <h2>Recipes</h2>
+      <h2>Diet Recipes</h2>
       <section class="recipe-display">
         <div class="random-recipe-image"><!-- div for an image, check css --></div>
         <div class="recipe-container">
-          <img class="recipe-image" src="../assets/images/Rectangle 7.png" alt="recipe name">
+          <img class="recipe-image" src="../assets/images/vegetarian-diet.webp" alt="recipe name">
           <div class="recipe-content-container">
             <div class="recipe-description">
-              <h3>Yoruba Poraro</h3>
-              <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
+              <h3>Vegetarian</h3>
+              <p>No ingredients may contain meat or meat by-products, such as bones or gelatin.</p>
             </div>
             <button type="submit">Go</button>
           </div>
         </div>
         <div class="recipe-container">
-          <img class="recipe-image" src="../assets/images/Rectangle 7.png" alt="recipe name">
+          <img class="recipe-image" src="../assets/images/ketogenic-diet.jpg" alt="recipe name">
           <div class="recipe-content-container">
             <div class="recipe-description">
-              <h3>Yoruba Poraro</h3>
-              <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
+              <h3>Ketogenic</h3>
+              <p>The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients</p>
             </div>
             <button type="submit">Go</button>
           </div>
@@ -72,48 +74,9 @@ const getRecipe = () => {
       </section>
     </section>
     <!-- Trending Section -->
-    <section class="trending">
-        <h2>Trending</h2>
-        <section class="trending-list">
-            <div class="trending-recipe">
-                <img src="../assets/images/image-4.png" alt="recipe name">
-                <div class="recipe-content">
-                    <h3>Yoruba Poraro</h3>
-                    <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
-                </div>
-            </div>
-            <div class="trending-recipe">
-                <img src="../assets/images/image-4.png" alt="recipe name">
-                <div class="recipe-content">
-                    <h3>Yoruba Poraro</h3>
-                    <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
-                </div>
-            </div>
-            <div class="trending-recipe">
-                <img src="../assets/images/image-4.png" alt="recipe name">
-                <div class="recipe-content">
-                    <h3>Yoruba Poraro</h3>
-                    <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
-                </div>
-            </div>
-            <div class="trending-recipe">
-                <img src="../assets/images/image-4.png" alt="recipe name">
-                <div class="recipe-content">
-                    <h3>Yoruba Poraro</h3>
-                    <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula fermentum tincidunt</p>
-                </div>
-            </div>
-        </section>
-    </section>
+    <Trending />
     <!-- Explore Section -->
-    <section class="explore">
-        <h2>Explore</h2>
-        <div class="explore-list">
-            <img src="../assets/images/Rectangle 25.png" alt="cuisine name">
-            <img src="../assets/images/Rectangle 25.png" alt="cuisine name">
-            <img src="../assets/images/Rectangle 25.png" alt="cuisine name">
-        </div>
-    </section>
+    <Explore />
   </main>
 </template>
 
@@ -385,6 +348,7 @@ div.recipe-container button{
     color: white;
     font-style: normal;
     border-style: none;
+    cursor: pointer;
 }
 /* Trending Section */
 section.trending{

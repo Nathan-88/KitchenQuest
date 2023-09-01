@@ -35,13 +35,13 @@ const getDiet = (target) => {
           </div>
         </div>
         <div class="recipe-container">
-          <img class="recipe-image" src="../assets/images/ketogenic-diet.jpg" alt="recipe name">
+          <img class="recipe-image" src="../assets/images/gluten-free-diet.jpg" alt="recipe name">
           <div class="recipe-content-container">
             <div class="recipe-description">
-              <h3>Gluten-free</h3>
-              <p>The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients</p>
+              <h3>Gluten Free</h3>
+              <p>Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them (or that may have been cross contaminated)</p>
             </div>
-            <button type="submit" data-diet="ketogenic diet">Go</button>
+            <button type="submit" data-diet="Gluten Free diet">Go</button>
           </div>
         </div>
       </section>

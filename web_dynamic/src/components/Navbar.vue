@@ -36,7 +36,7 @@ const getRecipe = () => {
 }
 .navbar {
     display: flex;
-    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-columns: repeat(3, 1fr);; */
     justify-content: space-around;
     align-items: center;
     /* gap: 30px; */

@@ -14,7 +14,7 @@ import Navbar from '../components/Navbar.vue';
           <h2>Everything you want in the search box</h2>
           </div>
           <p>
-              KitchenQuest aims to solve the challenge of deciding what to cook based on the ingredients 
+              KitchenQuest aims to solve the challenges of deciding what to cook based on the ingredients 
               available to users. Often, people find themselves with a collection of ingredients but lack the 
               inspiration to create a meal. This application will bridge that gap by suggesting recipes that 
               can be prepared using the ingredients the user already has. It's designed to streamline the cooking 

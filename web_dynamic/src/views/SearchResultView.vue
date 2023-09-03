@@ -2,32 +2,62 @@
 import axios from 'axios'
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
+import router from '../router/index'
 import { ref, onMounted, watch } from 'vue';
 
+// The ingredient props name should be changed to something more generic
+// because we are about to use it for cuisines too
 const props = defineProps({
     ingredient: String
 });
+
 const recipes = ref(null)
+
 const fetchRecipe = (ingredient) => {
+    // create a default params object
+    const params = {
+        apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
+        instructionsRequired: true,
+        sort: 'random',
+        addRecipeInformation: true,
+        addRecipeNutrition: true,
+        sortDirection: 'asc',
+        number: 10
+    }
+    // conditionally set the optional params for the api
+    if (ingredient.includes('cuisine')) {
+        const cuisine = ingredient.replace("cuisine", "")
+        params.cuisine = cuisine
+        console.log("Cuisines")
+    } else if (ingredient.includes('diet')) {
+        const diet = ingredient.replace("diet", "")
+        params.diet = diet
+        console.log("Diets")
+    } else {
+        console.log("Ingredients")
+        params.includeIngredients = ingredient
+    }
+
     axios({
-        url: 'https://api.spoonacular.com/recipes/complexSearch',
-        params: {
-            apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
-            ingredients: ingredient,
-            sort: 'random',
-            addRecipeInformation: true,
-            addRecipeNutrition: true,
-            sortDirection: 'asc',
-            number: 10
-        }
+        url: import.meta.env.VITE_BASE_URL,
+        params: params
     }).then((response) =>  {
         recipes.value = response.data['results']
-        // console.log('state:', recipes.value)
+        console.log('state:', recipes.value)
     })
     .catch((error) => console.error(error))
 }
+// component lifecycle
 onMounted(() => fetchRecipe(props.ingredient))
 watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
+
+// show more details about a recipe
+// listen for a click event to trigger the route
+const moreDetails = (recipeObj) => {
+    const recipeJson = JSON.stringify(recipeObj)
+    console.log(recipeObj);
+    router.push({name: "RecipePage", params: {recipe: recipeJson}})
+}
 </script>
 
 <template>
@@ -38,15 +68,15 @@ watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
             <RecipeItem v-for="recipe in recipes"
                         :recipeTitle="recipe.title"
                         :imageSrc="recipe.image"
-                        :missed="recipe.missedIngredientCount"
-                        :used="recipe.usedIngredientCount"
+                        :summary="recipe.summary"
                         :key="recipe.title"
+                        @click="() => moreDetails(recipe)"
             />
         </section>
     </main>
 </template>
 
-<style>
+<style scoped>
 h1{
     padding-inline-start: 20px;
     margin: 30px;

@@ -69,17 +69,20 @@ div.recipe-container{
 
 div.recipe_image{
   margin-top: 10px;
+  width: 100%;
   max-width: 100%;
-  height: auto;
+  overflow: hidden;
+  position: relative;
   border-radius: 15px;
 }
 
 div.recipe_image .image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    background-size: cover;
+    display: block;
+    max-width: 100%;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     border-radius: 15px;
     object-fit: cover;
 }

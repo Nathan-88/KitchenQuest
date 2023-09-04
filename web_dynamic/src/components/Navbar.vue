@@ -36,7 +36,7 @@ const getRecipe = () => {
 }
 .navbar {
     display: flex;
-    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-columns: repeat(3, 1fr);; */
     justify-content: space-around;
     align-items: center;
     /* gap: 30px; */
@@ -46,6 +46,7 @@ const getRecipe = () => {
     /* grid-row: 1/2; */
 }
 .navbar img.logo {
+    margin-top: 5px; /* added a margin */
     grid-column: 1/2;
     width: 150px;
     height: 50px;
@@ -73,7 +74,8 @@ const getRecipe = () => {
     width: 300px;
     display: flex;
     background: var(--white);
-    box-shadow: 10px 15px 10px -10px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10);*/
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.10);
     border-radius: 5px;
     background-color: white;
 }

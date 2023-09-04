@@ -46,7 +46,7 @@ const getRecipe = () => {
     /* grid-row: 1/2; */
 }
 .navbar img.logo {
-    margin-top: 20px; /* added a margin */
+    margin-top: 5px; /* added a margin */
     grid-column: 1/2;
     width: 150px;
     height: 50px;

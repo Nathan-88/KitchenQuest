@@ -79,9 +79,23 @@ section.container{
     gap: 50px;
 }
 section.loading{
-    width: 100%;
+    width: 95%;
+    margin: auto;
     height: 250px;
     background-color: lightgrey;
     border-radius: 20px;
+    animation: 0.5s infinite alternate loading;
+}
+@keyframes loading {
+    from{
+        width: 99.5%;
+        height: 249px;
+        background-color: rgb(241, 233, 233);
+    }
+    to{
+        width: 100%;
+        background-color: rgb(224, 218, 218);
+        height: 250px;
+    }
 }
 </style>

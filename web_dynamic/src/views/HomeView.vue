@@ -4,13 +4,10 @@ import Explore from '../components/Explore.vue';
 import Trending from '../components/Trending.vue';
 import Diet from '../components/Diet.vue';
 import { ref } from 'vue';
-import router from '../router/index'
-
+import { getRecipe } from '../utilities';
 
 const searchText = ref("")
-const getRecipe = () => {
-    router.push({name: 'search', params: { ingredient: searchText.value }})
-}
+
 </script>
 
 <template>
@@ -27,8 +24,8 @@ const getRecipe = () => {
         <p class="hero-text">the World</p>
       </div>
       <div class="search">
-        <input v-model="searchText" @keypress.enter.prevent="getRecipe" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
-        <button @click="getRecipe" type="submit">Go</button>
+        <input v-model="searchText" @keypress.enter.prevent="() => getRecipe(searchText)" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
+        <button @click="() => getRecipe(searchText)" type="submit">Go</button>
       </div>
     </section>
     <section class="red_box"></section>
@@ -174,6 +171,7 @@ div.search button{
     cursor: pointer;
     outline: none;
     border: none;
+    color: white;
 }
 
 /* MAin Content */

@@ -1,18 +1,11 @@
 <script setup>
-import router from '../router';
-
-const getDiet = (target) => {
-  if (target.dataset.diet !== undefined) {
-    console.log(`Getting ${target.dataset.diet}`)
-    router.push({name: "search", params: {ingredient: target.dataset.diet}})
-  }
-}
+import { getRecipe } from '../utilities';
 </script>
 
 <template>
   <section class="recipes">
       <h2>Diet Recipes</h2>
-      <section @click="(event) => getDiet(event.target)" class="recipe-display">
+      <section class="recipe-display">
         <div class="random-recipe-image"><!-- div for an image, check css --></div>
         <div class="recipe-container">
           <img class="recipe-image" src="../assets/images/vegetarian-diet.webp" alt="recipe name">
@@ -21,7 +14,7 @@ const getDiet = (target) => {
               <h3>Vegetarian</h3>
               <p>No ingredients may contain meat or meat by-products, such as bones or gelatin.</p>
             </div>
-            <button type="submit" data-diet="vegetarian diet">Go</button>
+            <button @click="(event) => getRecipe(event.target.dataset.diet)" type="submit" data-diet="vegetarian diet">Go</button>
           </div>
         </div>
         <div class="recipe-container">
@@ -31,7 +24,7 @@ const getDiet = (target) => {
               <h3>Ketogenic</h3>
               <p>The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients</p>
             </div>
-            <button type="submit" data-diet="ketogenic diet">Go</button>
+            <button @click="(event) => getRecipe(event.target.dataset.diet)" type="submit" data-diet="ketogenic diet">Go</button>
           </div>
         </div>
         <div class="recipe-container">
@@ -41,7 +34,7 @@ const getDiet = (target) => {
               <h3>Gluten Free</h3>
               <p>Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them (or that may have been cross contaminated)</p>
             </div>
-            <button type="submit" data-diet="Gluten Free diet">Go</button>
+            <button @click="(event) => getRecipe(event.target.dataset.diet)" type="submit" data-diet="Gluten Free diet">Go</button>
           </div>
         </div>
       </section>

@@ -8,7 +8,7 @@ import { ref, onMounted, watch } from 'vue';
 // The ingredient props name should be changed to something more generic
 // because we are about to use it for cuisines too
 const props = defineProps({
-    ingredient: String
+    recipe: String
 });
 
 const recipes = ref(null)
@@ -28,13 +28,10 @@ const fetchRecipe = (ingredient) => {
     if (ingredient.includes('cuisine')) {
         const cuisine = ingredient.replace("cuisine", "")
         params.cuisine = cuisine
-        console.log("Cuisines")
     } else if (ingredient.includes('diet')) {
         const diet = ingredient.replace("diet", "")
         params.diet = diet
-        console.log("Diets")
-    } else {
-        console.log("Ingredients")
+    } else if (!ingredient.includes('trending')){
         params.includeIngredients = ingredient
     }
 
@@ -48,8 +45,8 @@ const fetchRecipe = (ingredient) => {
     .catch((error) => console.error(error))
 }
 // component lifecycle
-onMounted(() => fetchRecipe(props.ingredient))
-watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
+onMounted(() => fetchRecipe(props.recipe))
+watch(() => props.recipe, (ingredient) => fetchRecipe(ingredient))
 
 // show more details about a recipe
 // listen for a click event to trigger the route
@@ -63,7 +60,7 @@ const moreDetails = (recipeObj) => {
 <template>
     <Navbar :showsearch="true"/>
     <main>
-        <h1>Results for {{ props.ingredient }}</h1>
+        <h1>Results for {{ props.recipe }}</h1>
         <section class="container">
             <RecipeItem v-for="recipe in recipes"
                         :recipeTitle="recipe.title"

@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import router from '../router/index'
+import { getRecipe } from '../utilities';
 import { ref } from 'vue';
 
 
@@ -9,9 +9,9 @@ const props = defineProps({
 })
 
 const searchText = ref("")
-const getRecipe = () => {
-    router.push({name: 'search', params: { ingredient: searchText.value }})
-}
+// const getRecipe = () => {
+//     router.push({name: 'search', params: { ingredient: searchText.value }})
+// }
 </script>
 
 <template>
@@ -20,12 +20,12 @@ const getRecipe = () => {
       <ul>
         <li><RouterLink to="/">Home</RouterLink></li>
         <li><RouterLink to="/about">About</RouterLink></li>
-        <li><RouterLink to="#trending">Trending</RouterLink></li>
+        <li><RouterLink to="/search/trending">Trending</RouterLink></li>
         <li><RouterLink to="/saved_recipes">Favourites</RouterLink></li>
       </ul>
       <div v-if="props.showsearch" class="nav-search">
-          <input v-model="searchText" @keypress.enter.prevent="getRecipe" type="text" name="nav_search" id="nav-search" placeholder="Search for Recipes">
-          <button @click="getRecipe" type="submit"><img class="icon" src="../assets/images/search.svg" alt="search"></button>
+          <input v-model="searchText" @keypress.enter.prevent="() => getRecipe(searchText)" type="text" name="nav_search" id="nav-search" placeholder="Search for Recipes">
+          <button @click="() => getRecipe(searchText)" type="submit"><img class="icon" src="../assets/images/search.svg" alt="search"></button>
       </div>
   </nav>
 </template>

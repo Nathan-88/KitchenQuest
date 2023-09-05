@@ -3,7 +3,6 @@ import axios from 'axios'
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
 import { defaultParams, moreDetails } from '../utilities';
-import router from '../router/index'
 import { ref, onMounted, watch } from 'vue';
 
 // The ingredient props name should be changed to something more generic
@@ -37,6 +36,7 @@ const fetchRecipe = (ingredient) => {
         loading.value = false
     })
     .catch((error) => console.error(error))
+
 }
 // component lifecycle
 onMounted(() => fetchRecipe(props.recipe))
@@ -50,6 +50,7 @@ watch(() => props.recipe, (ingredient) => fetchRecipe(ingredient))
         <main>
             <h1>Results for {{ props.recipe }}</h1>
             <section class="container">
+                <!-- Conditional rendering, this one or the other -->
                 <RecipeItem v-if="!loading" v-for="recipe in recipes"
                             :recipeTitle="recipe.title"
                             :imageSrc="recipe.image"

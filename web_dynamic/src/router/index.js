@@ -14,13 +14,15 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: { transition: '' }
     },
     {
       path: '/recipe_page/:recipeDetails',
       name: 'RecipePage',
       component: RecipePageView,
-      props: true
+      props: true,
+      meta: { transition: '' }
     },
     {
       path: '/about',
@@ -28,19 +30,22 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/AboutView.vue'),
+      meta: { transition: '' }
     },
     {
       path: '/search/:recipe',
       name: 'search',
       component: SearchResultView,
       props: true,
+      meta: { transition: '' }
     },
     {
       path: '/saved_recipes',
       name: 'favourites',
       component: () => import('../views/FavouritesView.vue'),
-      props: true
+      props: true,
+      meta: { transition: '' }
     }
   ]
 })
@@ -48,7 +53,8 @@ const router = createRouter({
 router.afterEach((to, from) => {
   const toDepth = to.path.split('/').length
   const fromDepth = from.path.split('/').length
-  to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+  if (to.path === '/') to.meta.transition = 'slide-right'
+  else to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
 })
 
 export default router

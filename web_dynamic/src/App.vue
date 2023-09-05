@@ -5,7 +5,7 @@ import Footer from './components/Footer.vue';
 
 <template>
   <RouterView v-slot="{ Component, route }">
-    <transition name="route.meta.transition">
+    <transition :name="route.meta.transition">
       <component :is="Component"/>
     </transition>
   </RouterView>

@@ -11,4 +11,14 @@ export const moreDetails = (recipeObj) => {
   router.push({name: "RecipePage", params: {recipe: recipeJson}})
 }
 
+export const defaultParams = {
+  apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
+  instructionsRequired: true,
+  sort: 'random',
+  addRecipeInformation: true,
+  addRecipeNutrition: true,
+  sortDirection: 'asc',
+  number: 10
+}
+
 // module.exports = { getRecipe, moreDetails }

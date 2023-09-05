@@ -2,6 +2,7 @@
 import axios from 'axios'
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
+import { defaultParams } from '../utilities';
 import router from '../router/index'
 import { ref, onMounted, watch } from 'vue';
 
@@ -15,15 +16,7 @@ const recipes = ref(null)
 
 const fetchRecipe = (ingredient) => {
     // create a default params object
-    const params = {
-        apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
-        instructionsRequired: true,
-        sort: 'random',
-        addRecipeInformation: true,
-        addRecipeNutrition: true,
-        sortDirection: 'asc',
-        number: 10
-    }
+    const params = {...defaultParams}
     // conditionally set the optional params for the api
     if (ingredient.includes('cuisine')) {
         const cuisine = ingredient.replace("cuisine", "")
@@ -36,7 +29,7 @@ const fetchRecipe = (ingredient) => {
     }
 
     axios({
-        url: import.meta.env.VITE_BASE_URL,
+        url: import.meta.env.VITE_SPOONACULAR_BASE_URL,
         params: params
     }).then((response) =>  {
         recipes.value = response.data['results']

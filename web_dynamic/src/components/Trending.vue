@@ -1,19 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios'
-import { moreDetails, getRecipe } from '../utilities'
+import { moreDetails, getRecipe, defaultParams } from '../utilities'
 
 
 const trending = ref(null)
-const params = {
-    apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
-    instructionsRequired: true,
-    sort: 'random',
-    addRecipeInformation: true,
-    addRecipeNutrition: true,
-    sortDirection: 'asc',
-    number: 5
-}
+const params = {...defaultParams}
+params.number = 5
+console.log(params)
 
 const fixSummary = (summary) => {
     let finalSummary = summary.replace(/<\/?[^>]+(>|$)/g, "")
@@ -21,7 +15,7 @@ const fixSummary = (summary) => {
 }
 
 axios({
-    url: import.meta.env.VITE_BASE_URL,
+    url: import.meta.env.VITE_SPOONACULAR_BASE_URL,
     params: params,
 }).then((response) => {
     trending.value = response.data['results']

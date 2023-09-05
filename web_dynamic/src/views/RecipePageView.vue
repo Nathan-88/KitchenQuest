@@ -5,7 +5,6 @@ const props = defineProps({
   recipeDetails: String
 })
 const recipe = JSON.parse(props.recipeDetails)
-console.log(recipe)
 </script>
 
 <template>

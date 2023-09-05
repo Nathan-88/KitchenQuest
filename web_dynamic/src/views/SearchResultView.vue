@@ -33,7 +33,6 @@ const fetchRecipe = (ingredient) => {
         params: params
     }).then((response) =>  {
         recipes.value = response.data['results']
-        console.log('state:', recipes.value)
     })
     .catch((error) => console.error(error))
 }
@@ -41,13 +40,6 @@ const fetchRecipe = (ingredient) => {
 onMounted(() => fetchRecipe(props.recipe))
 watch(() => props.recipe, (ingredient) => fetchRecipe(ingredient))
 
-// show more details about a recipe
-// listen for a click event to trigger the route
-// const moreDetails = (recipeObj) => {
-//     const recipeJson = JSON.stringify(recipeObj)
-//     console.log(recipeObj);
-//     router.push({name: "RecipePage", params: {recipeDetails: recipeJson}})
-// }
 </script>
 
 <template>

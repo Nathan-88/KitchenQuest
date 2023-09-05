@@ -11,6 +11,7 @@ const searchText = ref("")
 </script>
 
 <template>
+    <!-- Ignore the div, for animation -->
   <div>
       <!-- Hero Section -->
       <header>

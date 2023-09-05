@@ -51,9 +51,11 @@ const router = createRouter({
 })
 
 router.afterEach((to, from) => {
-  const toDepth = to.path.split('/').length
-  const fromDepth = from.path.split('/').length
-  if (to.path === '/') to.meta.transition = 'slide-right'
+  const toDepth = to.path.length
+  const fromDepth = from.path.length
+  // console.log('from-full:', from.path)
+  // console.log('from:', fromDepth)
+  if (to.path === '/' && from.path === '/') to.meta.transition = ''
   else to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
 })
 

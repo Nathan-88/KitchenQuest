@@ -19,7 +19,6 @@ axios({
     params: params,
 }).then((response) => {
     trending.value = response.data['results']
-    console.log('trending:', trending.value)
 }).catch((error) => console.error(error))
 
 </script>

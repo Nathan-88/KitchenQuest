@@ -43,7 +43,7 @@ const router = createRouter({
     {
       path: '/saved_recipes',
       name: 'favourites',
-      component: () => import('../views/FavouritesView.vue'),
+      component: () => import('../views/ComingSoon.vue'),
       props: true,
       meta: { transition: '' }
     }

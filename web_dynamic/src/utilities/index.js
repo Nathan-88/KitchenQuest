@@ -1,7 +1,6 @@
 import router from '../router'
 
 export const getRecipe = (recipe) => {
-  console.log('clicked:', recipe)
   router.push({name: 'search', params: {recipe: recipe}})
 }
 

@@ -13,6 +13,7 @@ const props = defineProps({
 });
 
 const recipes = ref(null)
+const loading = ref(true)
 
 const fetchRecipe = (ingredient) => {
     // create a default params object
@@ -33,6 +34,7 @@ const fetchRecipe = (ingredient) => {
         params: params
     }).then((response) =>  {
         recipes.value = response.data['results']
+        loading.value = false
     })
     .catch((error) => console.error(error))
 }
@@ -48,13 +50,14 @@ watch(() => props.recipe, (ingredient) => fetchRecipe(ingredient))
         <main>
             <h1>Results for {{ props.recipe }}</h1>
             <section class="container">
-                <RecipeItem v-for="recipe in recipes"
+                <RecipeItem v-if="!loading" v-for="recipe in recipes"
                             :recipeTitle="recipe.title"
                             :imageSrc="recipe.image"
                             :summary="recipe.summary"
                             :key="recipe.title"
                             @click="() => moreDetails(recipe)"
                 />
+                <section v-else v-for="n in 10" :key="n" class="loading"></section>
             </section>
         </main>
     </div>
@@ -74,5 +77,11 @@ section.container{
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     row-gap: 20px;
     gap: 50px;
+}
+section.loading{
+    width: 100%;
+    height: 250px;
+    background-color: lightgrey;
+    border-radius: 20px;
 }
 </style>

@@ -2,33 +2,36 @@
 import Navbar from '../components/Navbar.vue';
 </script>
 <template>
-  <Navbar :showsearch="true" />
-
-  <main>
-    <section id="about-top">
-      <h1>How To Navigate</h1>
-      <div id="about">
-        <img src="../assets/images/image7.png" alt="display image"/>
-        <article>
-          <div>
-          <h2>Everything you want in the search box</h2>
-          </div>
-          <p>
-              KitchenQuest aims to solve the challenges of deciding what to cook based on the ingredients 
-              available to users. Often, people find themselves with a collection of ingredients but lack the 
-              inspiration to create a meal. This application will bridge that gap by suggesting recipes that 
-              can be prepared using the ingredients the user already has. It's designed to streamline the cooking 
-              process, reduce food waste, and offer creative culinary options even when faced with limited ingredients.
-          </p>
-        </article>
-      </div>
-    </section>
-  </main>
+  <!-- Ignore the div, it's for animation -->
+  <div>
+    <Navbar :showsearch="true" />
+  
+    <main>
+      <section id="about-top">
+        <h1>How To Navigate</h1>
+        <div id="about">
+          <img src="../assets/images/image7.png" alt="display image"/>
+          <article>
+            <div>
+            <h2>Everything you want in the search box</h2>
+            </div>
+            <p>
+                KitchenQuest aims to solve the challenges of deciding what to cook based on the ingredients 
+                available to users. Often, people find themselves with a collection of ingredients but lack the 
+                inspiration to create a meal. This application will bridge that gap by suggesting recipes that 
+                can be prepared using the ingredients the user already has. It's designed to streamline the cooking 
+                process, reduce food waste, and offer creative culinary options even when faced with limited ingredients.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
 </template>
 
 <style>
 @media (min-width: 1024px) {
-  .about {
+  #about {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -44,7 +47,7 @@ import Navbar from '../components/Navbar.vue';
     font-weight: 700;
     line-height: 60%; /* 128px */
     letter-spacing: -1.4px;
-    margin-left: 14px;
+    margin: 50px 0px 50px 14px;
     bottom: 0px;
     padding: 10px 10px 0px 50px;  
 }

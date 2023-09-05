@@ -2,57 +2,58 @@
 import Navbar from '../components/Navbar.vue';
 
 const props = defineProps({
-  recipe: String
+  recipeDetails: String
 })
-const recipe = JSON.parse(props.recipe)
-console.log(recipe)
+const recipe = JSON.parse(props.recipeDetails)
 </script>
 
 <template>
-  <Navbar :showsearch="true" />
-
-  <main>
-    <div class="recipe-container">
-      <div class="recipe_image">
-        <img class="image" :src="recipe.image" alt="recipe">
+  <div>
+    <Navbar :showsearch="true" />
+  
+    <main>
+      <div class="recipe-container">
+        <div class="recipe_image">
+          <img class="image" :src="recipe.image" alt="recipe">
+        </div>
+        <div class="recipe-summary">
+          <div class= "recipe_title">
+            <div class="redbox"></div>
+            <h1 class="recipe-title">{{ recipe.title }}</h1>
+          </div>
+          <div class="nutrients-box">
+            <span><b>Nutients: </b></span>
+            <span class="span" v-for="nutrient in recipe.nutrition.nutrients" :key="nutrient.name">
+            <em>{{ nutrient.name }};  </em>
+            </span>
+          </div>
+  
+          <div class="blackborder">
+            <div class="white-background"><b>Serving: {{ recipe.servings }}</b></div>
+            <div class="white-background"><b>Prep: {{ recipe.readyInMinutes }}minutes</b></div>
+            <div class="white-background"><b>Source: <a :href="recipe.sourceUrl">{{ recipe.sourceName }}</a></b></div>
+          </div> 
+        </div>
+        <div class="sharesection">
+          <div class=share>
+            <img src='../assets/images/bi_save.svg'>
+            <p>Save Recipe</p>
+          </div>
+          <div class='media-container'>
+            <img class="media" src="../assets/images/whatsapp.svg" alt="Whatsapp"/>
+            <img class="media" src="../assets/images/twitter.svg" alt="twitter"/>
+            <img class="media" src="../assets/images/instagram.svg" alt="instagram"/>
+          </div>
+  
+        </div>
       </div>
-      <div class="recipe-summary">
-        <div class= "recipe_title">
-          <div class="redbox"></div>
-          <h1 class="recipe-title">{{ recipe.title }}</h1>
-        </div>
-        <div class="nutrients-box">
-          <span><b>Nutients: </b></span>
-          <span class="span" v-for="nutrient in recipe.nutrition.nutrients" :key="nutrient.name">
-          <em>{{ nutrient.name }};  </em>
-          </span>
-        </div>
-
-        <div class="blackborder">
-          <div class="white-background"><b>Serving: {{ recipe.servings }}</b></div>
-          <div class="white-background"><b>Prep: {{ recipe.readyInMinutes }}minutes</b></div>
-          <div class="white-background"><b>Source: <a :href="recipe.sourceUrl">{{ recipe.sourceName }}</a></b></div>
-        </div> 
-      </div>
-      <div class="sharesection">
-        <div class=share>
-          <img src='../assets/images/bi_save.svg'>
-          <p>Save Recipe</p>
-        </div>
-        <div class='media-container'>
-          <img class="media" src="../assets/images/whatsapp.svg" alt="Whatsapp"/>
-          <img class="media" src="../assets/images/twitter.svg" alt="twitter"/>
-          <img class="media" src="../assets/images/instagram.svg" alt="instagram"/>
-        </div>
-
-      </div>
-    </div>
-    <hr>
-    <span><b>Ingredients: </b></span>
-    <span class="span" v-for="ingredient in recipe.nutrition.ingredients" :key="ingredient.id">
-      <em>{{ ingredient.name }};  </em>
-    </span>
-  </main>
+      <hr>
+      <span><b>Ingredients: </b></span>
+      <span class="span" v-for="ingredient in recipe.nutrition.ingredients" :key="ingredient.id">
+        <em>{{ ingredient.name }};  </em>
+      </span>
+    </main>
+  </div>
 </template>
 
 <style scoped>

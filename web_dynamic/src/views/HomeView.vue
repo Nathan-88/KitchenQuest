@@ -11,46 +11,49 @@ const searchText = ref("")
 </script>
 
 <template>
-  <!-- Hero Section -->
-  <header>
-    <section class="nav-container">
-      <div id="navbar-container">
-        <Navbar />
-      </div>
-      <h1 class="shadow_heading">request</h1>
-      <div class="hero-text-container">
-        <p class="hero-text">Discover Recipes for</p>
-        <p class="hero-text">Delicious Foods around</p>
-        <p class="hero-text">the World</p>
-      </div>
-      <div class="search">
-        <input v-model="searchText" @keypress.enter.prevent="() => getRecipe(searchText)" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
-        <button @click="() => getRecipe(searchText)" type="submit">Go</button>
-      </div>
-    </section>
-    <section class="red_box"></section>
-    <div class="dots"></div>
-    <img src="../assets/images/Rectangle 2.png" alt="food" class="food-image">
-  </header>
-  <main>
-    <!-- Random Section -->
-    <section class="random">
-      <div class="quote">
-        <span class="red-bar"></span>
-        <p>The internet famous always pan just got a huge update</p>
-      </div>
-      <div class="quote-two">
-        <h3>the world</h3>
-        <p>people find themselves with a collection of ingredients but lack the inspiration to create a meal. KitchenQuest will bridge that gap by suggesting recipes that can be prepared using the ingredients the user already has</p>
-      </div>
-    </section>
-    <!-- Diet Recipe Section -->
-    <Diet />
-    <!-- Trending Section -->
-    <Trending />
-    <!-- Explore Section -->
-    <Explore />
-  </main>
+    <!-- Ignore the div, for animation -->
+  <div>
+      <!-- Hero Section -->
+      <header>
+        <section class="nav-container">
+          <div id="navbar-container">
+            <Navbar />
+          </div>
+          <h1 class="shadow_heading">request</h1>
+          <div class="hero-text-container">
+            <p class="hero-text">Discover Recipes for</p>
+            <p class="hero-text">Delicious Foods around</p>
+            <p class="hero-text">the World</p>
+          </div>
+          <div class="search">
+            <input v-model="searchText" @keypress.enter.prevent="() => getRecipe(searchText)" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
+            <button @click="() => getRecipe(searchText)" type="submit">Go</button>
+          </div>
+        </section>
+        <section class="red_box"></section>
+        <div class="dots"></div>
+        <img src="../assets/images/Rectangle 2.png" alt="food" class="food-image">
+      </header>
+      <main>
+        <!-- Random Section -->
+        <section class="random">
+          <div class="quote">
+            <span class="red-bar"></span>
+            <p>The internet famous always pan just got a huge update</p>
+          </div>
+          <div class="quote-two">
+            <h3>the world</h3>
+            <p>people find themselves with a collection of ingredients but lack the inspiration to create a meal. KitchenQuest will bridge that gap by suggesting recipes that can be prepared using the ingredients the user already has</p>
+          </div>
+        </section>
+        <!-- Diet Recipe Section -->
+        <Diet />
+        <!-- Trending Section -->
+        <Trending />
+        <!-- Explore Section -->
+        <Explore />
+      </main>
+  </div>
 </template>
 
 <style scoped>

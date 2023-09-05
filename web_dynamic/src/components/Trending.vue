@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios'
+import { moreDetails, getRecipe } from '../utilities'
 
 
 const trending = ref(null)
@@ -31,9 +32,9 @@ axios({
 
 <template>
   <section class="trending">
-        <h2>Trending</h2>
+        <h2 @click="() => getRecipe('trending')">Trending</h2>
         <section class="trending-list">
-            <div v-for="recipe in trending" class="trending-recipe">
+            <div v-for="recipe in trending" class="trending-recipe" @click="() => moreDetails(recipe)">
                 <img :src="recipe.image" :alt="recipe.title">
                 <div class="recipe-content">
                     <h3>{{ recipe.title }}</h3>
@@ -52,6 +53,7 @@ section.trending{
     grid-template-rows: 70px 1fr;
     grid-template-columns: 1fr;
     row-gap: 30px;
+    cursor: pointer;
 }
 section.trending-list{
     display: grid;

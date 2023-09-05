@@ -31,7 +31,7 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/search/:ingredient',
+      path: '/search/:recipe',
       name: 'search',
       component: SearchResultView,
       props: true

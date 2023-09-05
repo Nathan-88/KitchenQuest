@@ -22,7 +22,7 @@ import { getRecipe } from '../utilities';
               <p data-cuisine="chinese cuisine">Chinese Cuisine</p>
             </div>
         </div>
-    </section>
+  </section>
 </template>
 
 <style scoped>

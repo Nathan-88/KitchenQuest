@@ -17,7 +17,7 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/recipe_page/:recipe',
+      path: '/recipe_page/:recipeDetails',
       name: 'RecipePage',
       component: RecipePageView,
       props: true
@@ -34,7 +34,7 @@ const router = createRouter({
       path: '/search/:recipe',
       name: 'search',
       component: SearchResultView,
-      props: true
+      props: true,
     },
     {
       path: '/saved_recipes',
@@ -43,6 +43,12 @@ const router = createRouter({
       props: true
     }
   ]
+})
+
+router.afterEach((to, from) => {
+  const toDepth = to.path.split('/').length
+  const fromDepth = from.path.split('/').length
+  to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
 })
 
 export default router

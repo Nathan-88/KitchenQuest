@@ -2,7 +2,7 @@
 import axios from 'axios'
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
-import { defaultParams } from '../utilities';
+import { defaultParams, moreDetails } from '../utilities';
 import router from '../router/index'
 import { ref, onMounted, watch } from 'vue';
 
@@ -43,27 +43,29 @@ watch(() => props.recipe, (ingredient) => fetchRecipe(ingredient))
 
 // show more details about a recipe
 // listen for a click event to trigger the route
-const moreDetails = (recipeObj) => {
-    const recipeJson = JSON.stringify(recipeObj)
-    console.log(recipeObj);
-    router.push({name: "RecipePage", params: {recipe: recipeJson}})
-}
+// const moreDetails = (recipeObj) => {
+//     const recipeJson = JSON.stringify(recipeObj)
+//     console.log(recipeObj);
+//     router.push({name: "RecipePage", params: {recipeDetails: recipeJson}})
+// }
 </script>
 
 <template>
-    <Navbar :showsearch="true"/>
-    <main>
-        <h1>Results for {{ props.recipe }}</h1>
-        <section class="container">
-            <RecipeItem v-for="recipe in recipes"
-                        :recipeTitle="recipe.title"
-                        :imageSrc="recipe.image"
-                        :summary="recipe.summary"
-                        :key="recipe.title"
-                        @click="() => moreDetails(recipe)"
-            />
-        </section>
-    </main>
+    <div>
+        <Navbar :showsearch="true"/>
+        <main>
+            <h1>Results for {{ props.recipe }}</h1>
+            <section class="container">
+                <RecipeItem v-for="recipe in recipes"
+                            :recipeTitle="recipe.title"
+                            :imageSrc="recipe.image"
+                            :summary="recipe.summary"
+                            :key="recipe.title"
+                            @click="() => moreDetails(recipe)"
+                />
+            </section>
+        </main>
+    </div>
 </template>
 
 <style scoped>

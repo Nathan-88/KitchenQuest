@@ -8,7 +8,7 @@ export const getRecipe = (recipe) => {
 export const moreDetails = (recipeObj) => {
   const recipeJson = JSON.stringify(recipeObj)
   console.log(recipeObj);
-  router.push({name: "RecipePage", params: {recipe: recipeJson}})
+  router.push({name: "RecipePage", params: {recipeDetails: recipeJson}})
 }
 
 export const defaultParams = {

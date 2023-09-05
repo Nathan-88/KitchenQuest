@@ -22,11 +22,11 @@ import Footer from './components/Footer.vue';
 .slide-left-enter-from,
 .slide-right-leave-to{
   opacity: 1;
-  transform: translateX(100%);
+  transform: translateX(-100%);
 }
 .slide-left-leave-to,
 .slide-right-enter-from{
   opacity: 1;
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }
 </style>

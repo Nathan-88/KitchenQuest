@@ -31,7 +31,7 @@ import Navbar from '../components/Navbar.vue';
 
 <style>
 @media (min-width: 1024px) {
-  .about {
+  #about {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -47,7 +47,7 @@ import Navbar from '../components/Navbar.vue';
     font-weight: 700;
     line-height: 60%; /* 128px */
     letter-spacing: -1.4px;
-    margin-left: 14px;
+    margin: 50px 0px 50px 14px;
     bottom: 0px;
     padding: 10px 10px 0px 50px;  
 }

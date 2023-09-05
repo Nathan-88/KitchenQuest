@@ -1,11 +1,5 @@
 <script setup>
-// import router from '../router';
 import { getRecipe } from '../utilities';
-
-// const getCuisine = (target) => {
-//   console.log(`Getting ${target.dataset.cuisine}`)
-//   router.push({name: "search", params: {ingredient: target.dataset.cuisine}})
-// }
 </script>
 
 <template>

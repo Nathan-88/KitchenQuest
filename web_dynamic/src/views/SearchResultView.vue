@@ -1,7 +1,7 @@
 <script setup>
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
-import { moreDetails } from '../utilities';
+import { moreDetails, getRecipe } from '../utilities';
 import { ref, onMounted, watch } from 'vue';
 import { useRecipeStore } from '../stores';
 
@@ -19,7 +19,7 @@ if (recipes.value !== null) loading.value =false
 
 // component lifecycle
 // onMounted(() => console.log('mounted'))
-// watch(() => props.recipe, () => store = useRecipeStore())
+watch(() => props.recipe, (recipe) => getRecipe(recipe))
 
 </script>
 

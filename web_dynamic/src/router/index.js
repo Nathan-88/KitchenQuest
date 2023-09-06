@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SearchResultView from '../views/SearchResultView.vue'
 import RecipePageView from '../views/RecipePageView.vue'
+import { useRecipeStore } from '../stores'
 
 // Create a router instance using the createRouter function
 const router = createRouter({
@@ -18,10 +19,9 @@ const router = createRouter({
       meta: { transition: '' }
     },
     {
-      path: '/recipe_page/:recipeDetails',
+      path: '/recipe_page',
       name: 'RecipePage',
       component: RecipePageView,
-      props: true,
       meta: { transition: '' }
     },
     {

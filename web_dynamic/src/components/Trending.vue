@@ -1,18 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios'
+import { moreDetails, getRecipe, defaultParams } from '../utilities'
 
 
 const trending = ref(null)
-const params = {
-    apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
-    instructionsRequired: true,
-    sort: 'random',
-    addRecipeInformation: true,
-    addRecipeNutrition: true,
-    sortDirection: 'asc',
-    number: 5
-}
+const params = {...defaultParams}
+params.number = 5
+console.log(params)
 
 const fixSummary = (summary) => {
     let finalSummary = summary.replace(/<\/?[^>]+(>|$)/g, "")
@@ -20,20 +15,19 @@ const fixSummary = (summary) => {
 }
 
 axios({
-    url: import.meta.env.VITE_BASE_URL,
+    url: import.meta.env.VITE_SPOONACULAR_BASE_URL,
     params: params,
 }).then((response) => {
     trending.value = response.data['results']
-    console.log('trending:', trending.value)
 }).catch((error) => console.error(error))
 
 </script>
 
 <template>
   <section class="trending">
-        <h2>Trending</h2>
+        <h2 @click="() => getRecipe('trending')">Trending</h2>
         <section class="trending-list">
-            <div v-for="recipe in trending" class="trending-recipe">
+            <div v-for="recipe in trending" class="trending-recipe" @click="() => moreDetails(recipe)">
                 <img :src="recipe.image" :alt="recipe.title">
                 <div class="recipe-content">
                     <h3>{{ recipe.title }}</h3>
@@ -52,10 +46,11 @@ section.trending{
     grid-template-rows: 70px 1fr;
     grid-template-columns: 1fr;
     row-gap: 30px;
+    cursor: pointer;
 }
 section.trending-list{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: auto;
     row-gap: 80px;
     width: 100%;

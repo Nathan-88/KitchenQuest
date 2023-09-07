@@ -4,6 +4,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SearchResultView from '../views/SearchResultView.vue'
 import RecipePageView from '../views/RecipePageView.vue'
+import ErrorView from '@/views/ErrorView.vue'
+import { useRecipeStore } from '../stores'
 
 // Create a router instance using the createRouter function
 const router = createRouter({
@@ -14,13 +16,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: { transition: '' }
     },
     {
-      path: '/recipe_page/:recipe',
+      path: '/recipe_page',
       name: 'RecipePage',
       component: RecipePageView,
-      props: true
+      meta: { transition: '' }
     },
     {
       path: '/about',
@@ -28,21 +31,42 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/AboutView.vue'),
+      meta: { transition: '' }
     },
     {
-      path: '/search/:ingredient',
+      path: '/search/:recipe',
       name: 'search',
       component: SearchResultView,
-      props: true
+      props: true,
+      meta: { transition: '' }
+    },
+    {
+      path: '/search/error',
+      name: 'error',
+      component: ErrorView,
+      meta: { transition: '' }
     },
     {
       path: '/saved_recipes',
       name: 'favourites',
-      component: () => import('../views/FavouritesView.vue'),
-      props: true
+      component: () => import('../views/ComingSoon.vue'),
+      props: true,
+      meta: { transition: '' }
     }
   ]
+})
+
+router.afterEach((to, from) => {
+  const toDepth = to.path.length
+  const fromDepth = from.path.length
+  // console.log('toDepth:', toDepth)
+  // console.log('fromDepth:', fromDepth)
+  // console.log('animation:', toDepth < fromDepth ? 'slide-right' : 'slide-left')
+  // console.log('from-full:', from.path)
+  // console.log('from:', fromDepth)
+  if (to.path === from.path) to.meta.transition = ''
+  else to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
 })
 
 export default router

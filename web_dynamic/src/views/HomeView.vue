@@ -4,56 +4,56 @@ import Explore from '../components/Explore.vue';
 import Trending from '../components/Trending.vue';
 import Diet from '../components/Diet.vue';
 import { ref } from 'vue';
-import router from '../router/index'
-
+import { getRecipe } from '../utilities';
 
 const searchText = ref("")
-const getRecipe = () => {
-    router.push({name: 'search', params: { ingredient: searchText.value }})
-}
+
 </script>
 
 <template>
-  <!-- Hero Section -->
-  <header>
-    <section class="nav-container">
-      <div id="navbar-container">
-        <Navbar />
-      </div>
-      <h1 class="shadow_heading">request</h1>
-      <div class="hero-text-container">
-        <p class="hero-text">Discover Recipes for</p>
-        <p class="hero-text">Delicious Foods around</p>
-        <p class="hero-text">the World</p>
-      </div>
-      <div class="search">
-        <input v-model="searchText" @keypress.enter.prevent="getRecipe" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
-        <button @click="getRecipe" type="submit">Go</button>
-      </div>
-    </section>
-    <section class="red_box"></section>
-    <div class="dots"></div>
-    <img src="../assets/images/Rectangle 2.png" alt="food" class="food-image">
-  </header>
-  <main>
-    <!-- Random Section -->
-    <section class="random">
-      <div class="quote">
-        <span class="red-bar"></span>
-        <p>The internet famous always pan just got a huge update</p>
-      </div>
-      <div class="quote-two">
-        <h3>the world</h3>
-        <p>people find themselves with a collection of ingredients but lack the inspiration to create a meal. KitchenQuest will bridge that gap by suggesting recipes that can be prepared using the ingredients the user already has</p>
-      </div>
-    </section>
-    <!-- Diet Recipe Section -->
-    <Diet />
-    <!-- Trending Section -->
-    <Trending />
-    <!-- Explore Section -->
-    <Explore />
-  </main>
+    <!-- Ignore the div, for animation -->
+  <div>
+      <!-- Hero Section -->
+      <header>
+        <section class="nav-container">
+          <div id="navbar-container">
+            <Navbar />
+          </div>
+          <h1 class="shadow_heading">request</h1>
+          <div class="hero-text-container">
+            <p class="hero-text">Discover Recipes for</p>
+            <p class="hero-text">Delicious Foods around</p>
+            <p class="hero-text">the World</p>
+          </div>
+          <div class="search">
+            <input v-model="searchText" @keypress.enter.prevent="() => getRecipe(searchText)" name="recipe_search" id="recipe-search" placeholder="Search for Recipes">
+            <button @click="() => getRecipe(searchText)" type="submit">Go</button>
+          </div>
+        </section>
+        <section class="red_box"></section>
+        <div class="dots"></div>
+        <img src="../assets/images/Rectangle 2.png" alt="food" class="food-image">
+      </header>
+      <main>
+        <!-- Random Section -->
+        <section class="random">
+          <div class="quote">
+            <span class="red-bar"></span>
+            <p>Welcome to KitchenQuest - Your Culinary Companion</p>
+          </div>
+          <div class="quote-two">
+            <h3>Our Mission</h3>
+            <p>Our mission is simple: to help you create memorable meals effortlessly. With KitchenQuest, you'll discover new recipes, make the most of the ingredients you have, and savor the joy of cooking.</p>
+          </div>
+        </section>
+        <!-- Diet Recipe Section -->
+        <Diet />
+        <!-- Trending Section -->
+        <Trending />
+        <!-- Explore Section -->
+        <Explore />
+      </main>
+  </div>
 </template>
 
 <style scoped>
@@ -174,6 +174,7 @@ div.search button{
     cursor: pointer;
     outline: none;
     border: none;
+    color: white;
 }
 
 /* MAin Content */
@@ -236,7 +237,7 @@ div.quote-two h3{
     letter-spacing: -2.1px;
 }
 div.quote-two p{
-    max-width: 43ch;
+    max-width: 51ch;
     color: var(--hash-color);
     text-align: right;
     align-self: flex-end;

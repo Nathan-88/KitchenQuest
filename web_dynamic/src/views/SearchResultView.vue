@@ -1,79 +1,44 @@
 <script setup>
-import axios from 'axios'
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
-import router from '../router/index'
-import { ref, onMounted, watch } from 'vue';
+import { moreDetails } from '../utilities';
+import { ref } from 'vue';
+import { storeToRefs } from 'pinia'
+import { useRecipeStore } from '../stores';
 
-// The ingredient props name should be changed to something more generic
-// because we are about to use it for cuisines too
 const props = defineProps({
-    ingredient: String
+    recipe: String
 });
 
-const recipes = ref(null)
+let store = useRecipeStore()
+const loading = ref(true)
+const { recipes } = storeToRefs(store)
+if (recipes.value !== null) loading.value = false
 
-const fetchRecipe = (ingredient) => {
-    // create a default params object
-    const params = {
-        apiKey: import.meta.env.VITE_SPOONACULAR_API_KEY,
-        instructionsRequired: true,
-        sort: 'random',
-        addRecipeInformation: true,
-        addRecipeNutrition: true,
-        sortDirection: 'asc',
-        number: 10
-    }
-    // conditionally set the optional params for the api
-    if (ingredient.includes('cuisine')) {
-        const cuisine = ingredient.replace("cuisine", "")
-        params.cuisine = cuisine
-        console.log("Cuisines")
-    } else if (ingredient.includes('diet')) {
-        const diet = ingredient.replace("diet", "")
-        params.diet = diet
-        console.log("Diets")
-    } else {
-        console.log("Ingredients")
-        params.includeIngredients = ingredient
-    }
-
-    axios({
-        url: import.meta.env.VITE_BASE_URL,
-        params: params
-    }).then((response) =>  {
-        recipes.value = response.data['results']
-        console.log('state:', recipes.value)
-    })
-    .catch((error) => console.error(error))
-}
-// component lifecycle
-onMounted(() => fetchRecipe(props.ingredient))
-watch(() => props.ingredient, (ingredient) => fetchRecipe(ingredient))
-
-// show more details about a recipe
-// listen for a click event to trigger the route
-const moreDetails = (recipeObj) => {
-    const recipeJson = JSON.stringify(recipeObj)
-    console.log(recipeObj);
-    router.push({name: "RecipePage", params: {recipe: recipeJson}})
-}
+store.$subscribe((mutation, state) => {
+    localStorage.setItem('recipes', JSON.stringify(state.recipes))
+    localStorage.setItem('recipeDetails', JSON.stringify(state.recipeDetails))
+})
 </script>
 
 <template>
-    <Navbar :showsearch="true"/>
-    <main>
-        <h1>Results for {{ props.ingredient }}</h1>
-        <section class="container">
-            <RecipeItem v-for="recipe in recipes"
-                        :recipeTitle="recipe.title"
-                        :imageSrc="recipe.image"
-                        :summary="recipe.summary"
-                        :key="recipe.title"
-                        @click="() => moreDetails(recipe)"
-            />
-        </section>
-    </main>
+    <div>
+        <Navbar :showsearch="true"/>
+        <main>
+            <h1>Results for {{ props.recipe }}</h1>
+            <section class="container">
+                <!-- Conditional rendering, this one or the other -->
+                <RecipeItem v-if="!loading" v-for="recipe in recipes"
+                            :recipeTitle="recipe.title"
+                            :imageSrc="recipe.image"
+                            :summary="recipe.summary"
+                            :key="recipe.title"
+                            @click="() => moreDetails(recipe)"
+                />
+                <section v-else v-for="n in 10" :key="n" class="loading"></section>
+            </section>
+        </main>
+    </div>
 </template>
 
 <style scoped>
@@ -90,5 +55,25 @@ section.container{
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     row-gap: 20px;
     gap: 50px;
+}
+section.loading{
+    width: 95%;
+    margin: auto;
+    height: 250px;
+    background-color: lightgrey;
+    border-radius: 20px;
+    animation: 0.5s infinite alternate loading;
+}
+@keyframes loading {
+    from{
+        width: 99.5%;
+        height: 249px;
+        background-color: rgb(241, 233, 233);
+    }
+    to{
+        width: 100%;
+        background-color: rgb(224, 218, 218);
+        height: 250px;
+    }
 }
 </style>

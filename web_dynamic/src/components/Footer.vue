@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
 <template>
   <footer>
     <section class="footer-container">
@@ -13,30 +16,32 @@
               <p class="copyright">2023 Kitchen Q All Rights Reserved</p>
           </div>
           <div>
-              <h3>Yoruba Poraro</h3>
+              <h3>Navigation</h3>
               <div class="extras">
-                  <p>About</p>
-                  <p>Recipes</p>
-                  <p>Trending</p>
-                  <p>Explore</p>
+                  <p><router-link to="/">Home</router-link></p>
+                  <p><router-link to="/about">About</router-link></p>
+                  <p><router-link to="/search/trending">Trending</router-link></p>
+                  <p><router-link to="/search/european cuisine">Explore</router-link></p>
               </div>
           </div>
           <div>
-              <h3>Yoruba Poraro</h3>
+              <h3>User Navigation</h3>
               <div class="extras">
-                  <p>About</p>
-                  <p>Recipes</p>
-                  <p>Trending</p>
-                  <p>Explore</p>
+                  <p>Sign Up</p>
+                  <p>Login</p>
+                  <p>Favourites</p>
               </div>
           </div>
           <div>
-              <h3>Yoruba Poraro</h3>
+              <h3>More Explore options</h3>
               <div class="extras">
-                  <p>About</p>
-                  <p>Recipes</p>
-                  <p>Trending</p>
-                  <p>Explore</p>
+                  <p>European Cuisine</p>
+                  <p>African Cuisine</p>
+                  <p>Indian Cuisine</p>
+                  <p>Italian Cuisine</p>
+                  <p>GlutenFree</p>
+                  <p>Vegetarian</p>
+                  <p>Ketogenic</p>
               </div>
           </div>
     </section>
@@ -98,6 +103,10 @@ div.extras{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+div.extras a{
+    text-decoration: none;
+    color: inherit;
 }
 
 </style>

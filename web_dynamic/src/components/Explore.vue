@@ -1,16 +1,11 @@
 <script setup>
-import router from '../router';
-
-const getCuisine = (target) => {
-  console.log(`Getting ${target.dataset.cuisine}`)
-  router.push({name: "search", params: {ingredient: target.dataset.cuisine}})
-}
+import { getRecipe } from '../utilities';
 </script>
 
 <template>
   <section class="explore">
         <h2>Explore</h2>
-        <div @click="(event) => getCuisine(event.target)" class="explore-list">
+        <div @click="(event) => getRecipe(event.target.dataset.cuisine)" class="explore-list">
             <div class="image" data-cuisine="italian cuisine">
               <p data-cuisine="italian cuisine">Italian Cuisine</p>
             </div>
@@ -21,7 +16,7 @@ const getCuisine = (target) => {
               <p data-cuisine="chinese cuisine">Chinese Cuisine</p>
             </div>
         </div>
-    </section>
+  </section>
 </template>
 
 <style scoped>

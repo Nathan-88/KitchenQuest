@@ -39,11 +39,11 @@ const searchText = ref("")
         <section class="random">
           <div class="quote">
             <span class="red-bar"></span>
-            <p>The internet famous always pan just got a huge update</p>
+            <p>Welcome to KitchenQuest - Your Culinary Companion</p>
           </div>
           <div class="quote-two">
-            <h3>the world</h3>
-            <p>people find themselves with a collection of ingredients but lack the inspiration to create a meal. KitchenQuest will bridge that gap by suggesting recipes that can be prepared using the ingredients the user already has</p>
+            <h3>Our Mission</h3>
+            <p>Our mission is simple: to help you create memorable meals effortlessly. With KitchenQuest, you'll discover new recipes, make the most of the ingredients you have, and savor the joy of cooking.</p>
           </div>
         </section>
         <!-- Diet Recipe Section -->
@@ -237,7 +237,7 @@ div.quote-two h3{
     letter-spacing: -2.1px;
 }
 div.quote-two p{
-    max-width: 43ch;
+    max-width: 51ch;
     color: var(--hash-color);
     text-align: right;
     align-self: flex-end;

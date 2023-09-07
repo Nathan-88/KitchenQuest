@@ -2,7 +2,7 @@
 import RecipeItem from '@/components/RecipeItem.vue';
 import Navbar from '@/components/Navbar.vue';
 import { moreDetails } from '@/utilities';
-import { ref } from 'vue';
+import { ref, onBeforeUnmount } from 'vue';
 import { storeToRefs } from 'pinia'
 import { useRecipeStore } from '@/stores';
 
@@ -16,9 +16,12 @@ const { recipes } = storeToRefs(store)
 if (recipes.value !== null) loading.value = false
 
 store.$subscribe((mutation, state) => {
+    console.log('mutation')
     localStorage.setItem('recipes', JSON.stringify(state.recipes))
     localStorage.setItem('recipeDetails', JSON.stringify(state.recipeDetails))
 })
+
+// onBeforeUnmount(() => localStorage.removeItem('recipes'))
 </script>
 
 <template>

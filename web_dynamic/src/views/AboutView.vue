@@ -125,20 +125,4 @@ span{
   color: #000;
   padding-left: revert;
 }
-
-/* Social Media Links */
-.social-icons {
-    margin-top: 20px;
-}
-
-.social-icons a {
-    font-size: 24px;
-    margin-right: 20px;
-    color: #333;
-    text-decoration: none;
-}
-
-.social-icons a:hover {
-    color: #007bff;
-}
 </style>

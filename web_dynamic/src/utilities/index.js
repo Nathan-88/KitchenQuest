@@ -34,7 +34,7 @@ const fetchRecipe = async (searchValue) => {
       url: import.meta.env.VITE_SPOONACULAR_BASE_URL,
       params: params
   }).then((response) =>  {
-      store.$patch({recipes: response.data['results']})
+      store.recipes = response.data['results']
       return true
   })
   .catch((error) => {
@@ -45,14 +45,22 @@ const fetchRecipe = async (searchValue) => {
 
 export const getRecipe = async (query) => {
   const status = await fetchRecipe(query)
-  console.log(status)
   if (status) router.push({name: 'search', params: {recipe: query}})
+  else router.push({name: 'error'})
 }
 
 export const moreDetails = (recipeObj) => {
   const store = useRecipeStore()
   store.recipeDetails = recipeObj
   router.push({name: "RecipePage"})
+}
+
+export const persistState = (stateName) => {
+  const state = localStorage.getItem(stateName)
+  if (typeof state === 'string') {
+    return ref(JSON.parse(state))
+  }
+  return ref(null)
 }
 
 

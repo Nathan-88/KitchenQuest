@@ -1,26 +1,24 @@
 <script setup>
 import RecipeItem from '../components/RecipeItem.vue';
 import Navbar from '../components/Navbar.vue';
-import { moreDetails, getRecipe } from '../utilities';
-import { ref, onMounted, watch } from 'vue';
+import { moreDetails } from '../utilities';
+import { ref } from 'vue';
+import { storeToRefs } from 'pinia'
 import { useRecipeStore } from '../stores';
 
-// The ingredient props name should be changed to something more generic
-// because we are about to use it for cuisines too
 const props = defineProps({
     recipe: String
 });
 
 let store = useRecipeStore()
 const loading = ref(true)
-const recipes = ref(store.getRecipeResponse)
-console.log(recipes.value)
-if (recipes.value !== null) loading.value =false
+const { recipes } = storeToRefs(store)
+if (recipes.value !== null) loading.value = false
 
-// component lifecycle
-// onMounted(() => console.log('mounted'))
-watch(() => props.recipe, (recipe) => getRecipe(recipe))
-
+store.$subscribe((mutation, state) => {
+    localStorage.setItem('recipes', JSON.stringify(state.recipes))
+    localStorage.setItem('recipeDetails', JSON.stringify(state.recipeDetails))
+})
 </script>
 
 <template>

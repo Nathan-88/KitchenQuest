@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { computed } from "vue";
+import { persistState } from "../utilities";
 
 export const useRecipeStore = defineStore('recipes', () => {
-    const recipes = ref(null);
-    const recipeDetails = ref(null)
+    const recipes = persistState('recipes');
+    const recipeDetails = persistState('recipeDetails')
 
     const getRecipeResponse = computed(() => recipes.value)
 

@@ -1,6 +1,6 @@
 <script setup>
-import Navbar from '../components/Navbar.vue';
-import { useRecipeStore } from '../stores';
+import Navbar from '@/components/Navbar.vue';
+import { useRecipeStore } from '@/stores';
 
 const store = useRecipeStore()
 
@@ -36,13 +36,13 @@ const recipe = store.recipeDetails
         </div>
         <div class="sharesection">
           <div class=share>
-            <img src='../assets/images/bi_save.svg'>
+            <img src='@/assets/images/bi_save.svg'>
             <p>Save Recipe</p>
           </div>
           <div class='media-container'>
-            <img class="media" src="../assets/images/whatsapp.svg" alt="Whatsapp"/>
-            <img class="media" src="../assets/images/twitter.svg" alt="twitter"/>
-            <img class="media" src="../assets/images/instagram.svg" alt="instagram"/>
+            <img class="media" src="@/assets/images/whatsapp.svg" alt="Whatsapp"/>
+            <img class="media" src="@/assets/images/twitter.svg" alt="twitter"/>
+            <img class="media" src="@/assets/images/instagram.svg" alt="instagram"/>
           </div>
   
         </div>

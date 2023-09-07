@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios'
-import { moreDetails, getRecipe, defaultParams } from '../utilities'
+import { moreDetails, getRecipe, defaultParams } from '@/utilities'
 
 
 const trending = ref(null)

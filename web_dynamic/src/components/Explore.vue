@@ -1,5 +1,5 @@
 <script setup>
-import { getRecipe } from '../utilities';
+import { getRecipe } from '@/utilities';
 </script>
 
 <template>
@@ -61,13 +61,13 @@ div.image p{
   position: relative;
 }
 div.image:first-child{
-  background-image: url('../assets/images/italian-cuisine.jpg');
+  background-image: url('@/assets/images/italian-cuisine.jpg');
 }
 div.image:nth-child(2){
-  background-image: url('../assets/images/indian-cuisine.jpg');
+  background-image: url('@/assets/images/indian-cuisine.jpg');
 }
 div.image:nth-child(3){
-  background-image: url('../assets/images/chinese-cuisine.jpg');
+  background-image: url('@/assets/images/chinese-cuisine.jpg');
 }
 div.image::before{
   content: "";

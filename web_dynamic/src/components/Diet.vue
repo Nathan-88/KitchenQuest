@@ -47,7 +47,7 @@ section.recipes {
     grid-template-rows: 50px 2.5fr;
     grid-template-columns: minmax(40px, 1fr);
     margin: 50px 0;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 }
 section.recipes h2{
     grid-row: 1/2;
@@ -65,7 +65,7 @@ section.recipe-display{
     justify-items: center;
     row-gap: 30px;
     width: 100%;
-    min-height: 350px;
+    min-height: 320px;
 }
 section.recipes .random-recipe-image{
     width: 300px;

@@ -50,7 +50,7 @@ section.trending{
 }
 section.trending-list{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: auto;
     row-gap: 80px;
     width: 100%;

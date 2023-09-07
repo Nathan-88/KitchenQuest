@@ -20,7 +20,7 @@ const searchText = ref("")
       <ul>
         <li><RouterLink to="/">Home</RouterLink></li>
         <li><RouterLink to="/about">About</RouterLink></li>
-        <li><RouterLink to="/search/trending">Trending</RouterLink></li>
+        <li @click="() => getRecipe('trending')">Trending</li>
         <li><RouterLink to="/saved_recipes">Favourites</RouterLink></li>
       </ul>
       <div v-if="props.showsearch" class="nav-search">
@@ -43,6 +43,7 @@ const searchText = ref("")
     flex-direction: row;
     margin: 10px 0px 0px 50px;
     max-width: 100%;
+    cursor: pointer;
     /* grid-row: 1/2; */
 }
 .navbar img.logo {

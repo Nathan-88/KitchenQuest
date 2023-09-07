@@ -1,10 +1,10 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
+import { useRecipeStore } from '../stores';
 
-const props = defineProps({
-  recipeDetails: String
-})
-const recipe = JSON.parse(props.recipeDetails)
+const store = useRecipeStore()
+
+const recipe = store.recipeDetails
 </script>
 
 <template>

@@ -28,21 +28,24 @@ import { getRecipe } from '../utilities';
         <div>
             <h3>User Navigation</h3>
             <div class="extras">
-                <p>Sign Up</p>
-                <p>Login</p>
-                <p>Favourites</p>
+                <p data-userRoles="Sign up">Sign Up</p>
+                <p data-userRoles="Login">Login</p>
+                <p data-userRoles="Favourites">Favourites</p>
             </div>
         </div>
         <div>
-            <h3>More Explore options</h3>
-            <div class="extras">
-                <p>European Cuisine</p>
-                <p>African Cuisine</p>
-                <p>Indian Cuisine</p>
-                <p>Italian Cuisine</p>
-                <p>GlutenFree</p>
-                <p>Vegetarian</p>
-                <p>Ketogenic</p>
+            <h3>More Explore Options</h3>
+            <div @click="(event) => getRecipe(event.target.dataset.cuisine)" class="extras">
+                <p data-cuisine="european cuisine">European Cuisine</p>
+                <p data-cuisine="african cuisine">African Cuisine</p>
+                <p data-cuisine="indian cuisine">Indian Cuisine</p>
+                <p data-cuisine="italian cuisine">Italian Cuisine</p>
+            </div>
+            <div @click="(event) => getRecipe(event.target.dataset.diet)" class="extras">
+                <!-- <h3>More Diets</h3> -->
+                <p data-diet="glutenfree">GlutenFree</p>
+                <p data-diet="vegetarian">Vegetarian</p>
+                <p data-diet="ketogenic">Ketogenic</p>
             </div>
         </div>
     </section>
@@ -73,6 +76,7 @@ section.footer-container{
 }
 section.footer-container p{
     margin: 5px;
+    cursor: pointer;
 }
 div.social-info{
     min-width: 200px;

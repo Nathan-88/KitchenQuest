@@ -1,13 +1,12 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios'
-import { moreDetails, getRecipe, defaultParams } from '../utilities'
+import { moreDetails, getRecipe, defaultParams } from '@/utilities'
 
 
 const trending = ref(null)
 const params = {...defaultParams}
 params.number = 5
-console.log(params)
 
 const fixSummary = (summary) => {
     let finalSummary = summary.replace(/<\/?[^>]+(>|$)/g, "")

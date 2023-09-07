@@ -1,5 +1,5 @@
 <script setup>
-import Navbar from '../components/Navbar.vue';
+import Navbar from '@/components/Navbar.vue';
 </script>
 <template>
   <!-- Ignore the div, it's for animation -->
@@ -69,7 +69,7 @@ import Navbar from '../components/Navbar.vue';
 
 <style scoped>
 .hero{
-  background-image: url('../assets/images/Rectangle30.jpg');
+  background-image: url('@/assets/images/Rectangle30.jpg');
   background-repeat: no-repeat;
   text-align: center;
   margin: 0, auto;
@@ -92,7 +92,7 @@ p{
     font-size: 16px;
     line-height: 1.5;
     color: var(--hash-color);
-    background-color: ;
+    /* background-color: ; */
     padding: 10px;
 }
 

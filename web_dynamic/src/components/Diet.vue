@@ -1,5 +1,5 @@
 <script setup>
-import { getRecipe } from '../utilities';
+import { getRecipe } from '@/utilities';
 </script>
 
 <template>
@@ -8,7 +8,7 @@ import { getRecipe } from '../utilities';
       <section class="recipe-display">
         <div class="random-recipe-image"><!-- div for an image, check css --></div>
         <div class="recipe-container">
-          <img class="recipe-image" src="../assets/images/vegetarian-diet.webp" alt="recipe name">
+          <img class="recipe-image" src="@/assets/images/vegetarian-diet.webp" alt="recipe name">
           <div class="recipe-content-container">
             <div class="recipe-description">
               <h3>Vegetarian</h3>
@@ -18,7 +18,7 @@ import { getRecipe } from '../utilities';
           </div>
         </div>
         <div class="recipe-container">
-          <img class="recipe-image" src="../assets/images/ketogenic-diet.jpg" alt="recipe name">
+          <img class="recipe-image" src="@/assets/images/ketogenic-diet.jpg" alt="recipe name">
           <div class="recipe-content-container">
             <div class="recipe-description">
               <h3>Ketogenic</h3>
@@ -28,7 +28,7 @@ import { getRecipe } from '../utilities';
           </div>
         </div>
         <div class="recipe-container">
-          <img class="recipe-image" src="../assets/images/gluten-free-diet.jpg" alt="recipe name">
+          <img class="recipe-image" src="@/assets/images/gluten-free-diet.jpg" alt="recipe name">
           <div class="recipe-content-container">
             <div class="recipe-description">
               <h3>Gluten Free</h3>
@@ -71,7 +71,7 @@ section.recipes .random-recipe-image{
     width: 300px;
     height: 338px;
     flex-shrink: 0;
-    background: url('../assets/images/image-1d 1.png');
+    background: url('@/assets/images/image-1d 1.png');
     background-color: var(--background-color);
     background-size: contain;
     background-repeat: no-repeat;

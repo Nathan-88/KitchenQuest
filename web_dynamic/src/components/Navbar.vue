@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { getRecipe } from '../utilities';
+import { getRecipe } from '@/utilities';
 import { ref } from 'vue';
 
 
@@ -16,7 +16,7 @@ const searchText = ref("")
 
 <template>
   <nav class="navbar">
-      <a href="/"><img class="logo" src="../assets/images/Logo.svg" alt="kitchen Quest"></a>
+      <a href="/"><img class="logo" src="@/assets/images/Logo.svg" alt="kitchen Quest"></a>
       <ul>
         <li><RouterLink to="/">Home</RouterLink></li>
         <li><RouterLink to="/about">About</RouterLink></li>
@@ -25,7 +25,7 @@ const searchText = ref("")
       </ul>
       <div v-if="props.showsearch" class="nav-search">
           <input v-model="searchText" @keypress.enter.prevent="() => getRecipe(searchText)" type="text" name="nav_search" id="nav-search" placeholder="Search for Recipes">
-          <button @click="() => getRecipe(searchText)" type="submit"><img class="icon" src="../assets/images/search.svg" alt="search"></button>
+          <button @click="() => getRecipe(searchText)" type="submit"><img class="icon" src="@/assets/images/search.svg" alt="search"></button>
       </div>
   </nav>
 </template>

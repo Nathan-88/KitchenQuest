@@ -1,10 +1,10 @@
 <script setup>
-import RecipeItem from '../components/RecipeItem.vue';
-import Navbar from '../components/Navbar.vue';
-import { moreDetails } from '../utilities';
+import RecipeItem from '@/components/RecipeItem.vue';
+import Navbar from '@/components/Navbar.vue';
+import { moreDetails } from '@/utilities';
 import { ref } from 'vue';
 import { storeToRefs } from 'pinia'
-import { useRecipeStore } from '../stores';
+import { useRecipeStore } from '@/stores';
 
 const props = defineProps({
     recipe: String

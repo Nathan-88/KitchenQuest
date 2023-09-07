@@ -7,94 +7,138 @@ import Navbar from '../components/Navbar.vue';
     <Navbar :showsearch="true" />
   
     <main>
-      <section id="about-top">
-        <h1>How To Navigate</h1>
-        <div id="about">
-          <img src="../assets/images/image7.png" alt="display image"/>
-          <article>
-            <div>
-            <h2>Everything you want in the search box</h2>
-            </div>
+      <div class="hero">
+        <h2>About KitchenQuest</h2>
+        <p>Your Culinary Companion</p>
+      </div>
+      <div class="container">
+        <section>
+            <h2>Introduction</h2>
+            <p>At KitchenQuest, our journey began with a shared frustration that many of us have faced in our own kitchens. You know that feeling when you open your pantry and fridge to find a collection of ingredients, but the inspiration to create a meal seems elusive? We've been there too.
+            It was in those moments of culinary uncertainty that we decided to create an application to bridge the gap between ingredients and delicious meals. We wanted to make the cooking process easier and more enjoyable for everyone. That's how KitchenQuest was born.</p>
             <p>
-                KitchenQuest aims to solve the challenges of deciding what to cook based on the ingredients 
-                available to users. Often, people find themselves with a collection of ingredients but lack the 
-                inspiration to create a meal. This application will bridge that gap by suggesting recipes that 
-                can be prepared using the ingredients the user already has. It's designed to streamline the cooking 
-                process, reduce food waste, and offer creative culinary options even when faced with limited ingredients.
-            </p>
-          </article>
-        </div>
-      </section>
+            Imagine this: you open our app, and it's like having a personal chef right in your pocket. You can simply input the ingredients you have on hand, and KitchenQuest will suggest mouthwatering recipes that you can prepare with what you already have. No more staring at your pantry in confusion!</p>
+            <p>
+            But we didn't stop there. We also understand the importance of dietary preferences. Whether you're a vegetarian, following a Ketogenic diet, or need gluten-free options, we've got you covered. With KitchenQuest, you can search for recipes based on your preferences, and we'll provide you with a tailored list of delicious options.
+            Our mission is deeply personal to us. We know the daily dilemma of deciding what to prepare for meals, especially when your ingredients seem random and disconnected. Our goal is simple: to help you effortlessly create memorable meals. With KitchenQuest, you'll not only discover new recipes but also make the most of the ingredients you have, and savor the joy of cooking.</p>
+        </section>
+        
+        <section>
+            <h2>Our Mission</h2>
+            <p>At KitchenQuest, we empathize with the daily struggle of figuring out what to cook, especially when your ingredients appear haphazard and unrelated. Our purpose is straightforward: to facilitate the creation of unforgettable meals with ease. Through KitchenQuest, you'll explore fresh recipes, optimize your available ingredients, and relish the pleasures of cooking. Our aim is to equip you with a tool that transforms your kitchen into a domain of boundless culinary potential, no matter the contents of your refrigerator.</p>
+        </section>
+        
+        <!-- Add more sections for each feature as needed -->
+        
+        <section class="features">
+            <h2>Explore Our Features</h2>
+            <div class="feature-item">
+                <ul>
+                  <li>
+                  <p><span><b>Ingredient Magic: </b></span>Don't know what to cook with the ingredients in your pantry? KitchenQuest's Ingredient Magic is here to help. Simply enter the items you have, and we'll conjure up a list of recipes you can whip up right away.</p>
+                  </li>
+                  <li>
+                  <p><span><b>Personalized Suggestions:</b></span>Your taste buds are unique, and we get that. KitchenQuest learns your preferences and suggests recipes tailored just for you. Vegan, gluten-free, meat-eater – we've got you covered.</p>
+                  </li>
+                  <li>
+                  <p><span><b>Cook Like a Pro:</b></span>Step-by-step instructions, pro tips, and beautiful imagery make cooking a breeze. Whether you're making a family dinner or trying your hand at gourmet cuisine, you'll feel like a master chef.</p>
+                  </li>
+                  <li>
+                  <p><span><b>Build Your Shopping List:</b></span>Need to stock up on ingredients? KitchenQuest allows you to add missing items from your chosen recipe directly to your shopping list. No more forgotten items at the grocery store.</p>
+                  </li>
+                  <li>
+                  <p><span><b> Share and Connect:</b></span>Food brings people together. Share your culinary creations with friends and family through KitchenQuest, and discover what they're cooking too. Connect, inspire, and swap recipes with fellow food enthusiasts.</p>
+                  </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Our Promise</h2>
+            <p>KitchenQuest is more than just an app; it's your trusted companion in the kitchen. We promise to continuously improve and expand our offerings, ensuring that your cooking experience is always exciting and hassle-free.</p>
+        </section>
+        
+        <section>
+            <h2>Contact Us</h2>
+            <p>Got questions, suggestions, or just want to say hi? We'd love to hear from you! Reach out to our friendly support team at <a href="#">contact@email.com</a>.</p>
+        </section>
+    </div>
     </main>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  #about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<style scoped>
+.hero{
+  background-image: url('../assets/images/Rectangle30.jpg');
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: 0, auto;
+  background-size: cover;
+  max-width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+    max-width:100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-#about-top h1 {
-    color: #261A5A;
-    font-family: Poppins;
-    font-size: 45px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 60%; /* 128px */
-    letter-spacing: -1.4px;
-    margin: 50px 0px 50px 14px;
-    bottom: 0px;
-    padding: 10px 10px 0px 50px;  
-}
-
-#about-top div {
-    width: flex;
-    height: 500px;
-    margin: 0;
-    background: white;
-    position: relative;
-}
-
-#about-top div img {
-    width: 500px;
-    height: 436px;
-    margin: 30px;
-}
-
-div#about div{
-    background: #261A5A;
-    position: absolute;
-    top: 90px;
-    margin-bottom: 0px;
-    left: 550px;
-    margin: 0px;
-    /* padding: 10px 10px 10px 10px;
-    width: 50px;
-    height: 50px; */
-    height: 50px;
-}
-#about-top div h2 {
-    color: white;
-    font-family: Poppins;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%; /* 128px */
-    letter-spacing: -0.4px;
+p{
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--hash-color);
+    background-color: ;
     padding: 10px;
 }
 
-div#about p{
-    font-family: Poppins;
-    font-size: 16px;
-    position: absolute;
-    top: 150px;
-    left: 550px;
-    width: 600px;
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #fff;
+    color:#FD043C;
+}
+
+span{
+  color: #000;
+}
+
+.hero h2, .hero p{
+  color: #fff;
+  background: none;
+  width: 100%;
+  font-weight: 800;
+  line-height: 1.8em;
+}
+
+/* Customize Styles */
+
+.feature-item {
+    padding: 20px 0;
+}
+
+.feature-item ul{
+  color: #000;
+  padding-left: revert;
+}
+
+/* Social Media Links */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    font-size: 24px;
+    margin-right: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #007bff;
 }
 </style>

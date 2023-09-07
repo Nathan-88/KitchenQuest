@@ -22,7 +22,7 @@ import { getRecipe } from '../utilities';
                 <p><router-link to="/">Home</router-link></p>
                 <p><router-link to="/about">About</router-link></p>
                 <p><router-link to="" @click="getRecipe('trending')">Trending</router-link></p>
-                <p><router-link to="/search/european cuisine">Explore</router-link></p>
+                <p><router-link to="" @click="getRecipe('european cuisine')">Explore</router-link></p>
             </div>
         </div>
         <div>

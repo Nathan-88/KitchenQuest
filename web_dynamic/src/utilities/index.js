@@ -1,5 +1,5 @@
-import router from '../router'
-import { useRecipeStore } from '../stores'
+import router from '@/router'
+import { useRecipeStore } from '@/stores'
 import axios from 'axios'
 import { ref } from 'vue'
 

@@ -1,10 +1,10 @@
 <script setup>
-import Navbar from '../components/Navbar.vue'
-import Explore from '../components/Explore.vue';
-import Trending from '../components/Trending.vue';
-import Diet from '../components/Diet.vue';
+import Navbar from '@/components/Navbar.vue'
+import Explore from '@/components/Explore.vue';
+import Trending from '@/components/Trending.vue';
+import Diet from '@/components/Diet.vue';
 import { ref } from 'vue';
-import { getRecipe } from '../utilities';
+import { getRecipe } from '@/utilities';
 
 const searchText = ref("")
 
@@ -32,7 +32,7 @@ const searchText = ref("")
         </section>
         <section class="red_box"></section>
         <div class="dots"></div>
-        <img src="../assets/images/Rectangle 2.png" alt="food" class="food-image">
+        <img src="@/assets/images/Rectangle2.png" alt="food" class="food-image">
       </header>
       <main>
         <!-- Random Section -->

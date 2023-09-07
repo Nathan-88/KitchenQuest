@@ -7,7 +7,6 @@ import { moreDetails, getRecipe, defaultParams } from '../utilities'
 const trending = ref(null)
 const params = {...defaultParams}
 params.number = 5
-console.log(params)
 
 const fixSummary = (summary) => {
     let finalSummary = summary.replace(/<\/?[^>]+(>|$)/g, "")

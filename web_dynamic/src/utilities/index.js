@@ -49,12 +49,6 @@ export const getRecipe = async (query) => {
   const status = await fetchRecipe(query)
   if (status) router.push({name: 'search', params: {recipe: query}})
   else router.push({name: 'error'})
-  // if (typeof query === "string") {
-  // } else {
-  //   const status = await fetchRecipe(query.recipe)
-  //   if (status) return status
-  //   else router.push({name: 'error'})
-  // }
 }
 
 export const moreDetails = (recipeObj) => {

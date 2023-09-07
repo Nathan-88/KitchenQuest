@@ -54,6 +54,7 @@ section.recipes h2{
     height: 30px;
     width: 100%;
     text-align: right;
+    margin-top: 70px;
 }
 section.recipe-display{
     grid-row: 2/3;
@@ -74,6 +75,7 @@ section.recipes .random-recipe-image{
     background-repeat: no-repeat;
     display: inline-block;
     /* grid-column: 1/2; */
+    margin-top: 70px;
 }
 div.recipe-container{
     /* grid-column: 2/3; */
@@ -83,8 +85,11 @@ div.recipe-container{
     width: 100%;
 }
 img.recipe-image{
-    height: 100%;
-    width: 300px;
+    /*height: 100%;
+    width: 300px; */
+    height: 70%;
+    width: 290px;
+    margin-top: 85px;
 }
 div.recipe-container .recipe-content-container{
     display: grid;

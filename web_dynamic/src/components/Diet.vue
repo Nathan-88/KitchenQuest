@@ -87,11 +87,10 @@ div.recipe-container{
     width: 100%;
 }
 img.recipe-image{
-    /*height: 20%;
-    width: 300px;*/
     height: 70%;
     width: 290px;
     margin-top: 10px;
+    object-fit: cover;
 }
 div.recipe-container .recipe-content-container{
     display: grid;

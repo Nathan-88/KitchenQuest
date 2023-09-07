@@ -35,6 +35,7 @@ const fetchRecipe = async (searchValue) => {
       params: params
   }).then((response) =>  {
       store.recipes = response.data['results']
+      // localStorage.setItem('recipes', JSON.stringify(store.recipes))
       return true
   })
   .catch((error) => {
@@ -44,9 +45,16 @@ const fetchRecipe = async (searchValue) => {
 }
 
 export const getRecipe = async (query) => {
+  console.log('called me')
   const status = await fetchRecipe(query)
   if (status) router.push({name: 'search', params: {recipe: query}})
   else router.push({name: 'error'})
+  // if (typeof query === "string") {
+  // } else {
+  //   const status = await fetchRecipe(query.recipe)
+  //   if (status) return status
+  //   else router.push({name: 'error'})
+  // }
 }
 
 export const moreDetails = (recipeObj) => {

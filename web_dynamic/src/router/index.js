@@ -5,7 +5,6 @@ import HomeView from '@/views/HomeView.vue'
 import SearchResultView from '@/views/SearchResultView.vue'
 import RecipePageView from '@/views/RecipePageView.vue'
 import ErrorView from '@/views/ErrorView.vue'
-import { useRecipeStore } from '@/stores'
 
 // Create a router instance using the createRouter function
 const router = createRouter({
@@ -54,10 +53,22 @@ const router = createRouter({
       props: true,
       meta: { transition: '' }
     }
-  ]
+  ],
+  // adding scroll behaviour
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ left: 0, top: 0 })
+        }, 1000)
+      })
+    }
+  }
 })
 
-router.afterEach((to, from) => {
+router.beforeEach((to, from) => {
   const toDepth = to.path.length
   const fromDepth = from.path.length
   if (to.path === from.path) to.meta.transition = ''

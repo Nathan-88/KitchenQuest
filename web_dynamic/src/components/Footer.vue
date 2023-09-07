@@ -30,7 +30,7 @@ import { getRecipe } from '../utilities';
             <div class="extras">
                 <p data-userRoles="Sign up">Sign Up</p>
                 <p data-userRoles="Login">Login</p>
-                <p data-userRoles="Favourites">Favourites</p>
+                <p data-userRoles="Favourites"><router-link to="/saved_recipes">Favourites</router-link></p>
             </div>
         </div>
         <div>

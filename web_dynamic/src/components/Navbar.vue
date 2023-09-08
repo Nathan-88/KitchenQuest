@@ -49,7 +49,7 @@ const displayItem = show => display.value[show] = !display.value[show]
     flex-direction: row;
     background-color: var(--background-color);
     max-width: 100%;
-    cursor: pointer;
+    cursor: context-menu;
     height: 55px;
 }
 .navbar img.logo {
@@ -81,6 +81,9 @@ const displayItem = show => display.value[show] = !display.value[show]
         visibility: hidden;
     }
 }
+/* .navbar ul:active{
+    background-color: rgba(0, 0, 0, 0.10);
+} */
 .navbar a{
     color: var(--grayscale-50);
     text-decoration: none;
@@ -139,7 +142,7 @@ img.menu{
     background: var(--red-color);
     /* border-radius: 50px 4px 4px 4px; */
     border-style: none;
-    cursor: pointer;
+    cursor: context-menu;
     outline: none;
 }
 .nav-search img.icon{

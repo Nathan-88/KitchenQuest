@@ -23,7 +23,7 @@ let summary = props.summary?.replace(/<\/?[^>]+(>|$)/g, "")
 <style scoped>
 section.recipe-item{
     position: relative;
-    /* background-color: white; */
+    /* background-color: red; */
     width: 100%;
     /* height: 200px; */
     display: grid;
@@ -34,14 +34,14 @@ section.recipe-item{
     /* padding: 20px; */
 }
 section.recipe-item img{
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     margin: auto;
     border-radius: 15px;
     object-fit: cover;
 }
 section.recipe-item h3{
-    font-size: 14px;
+    font-size: 13px;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
@@ -51,11 +51,11 @@ section.recipe-item h3{
 div.recipe-summary{
     /* background-color: aqua; */
     max-width: 200px;
-    height: 170px;
+    height: 150px;
     margin: auto;
     display: grid;
     row-gap: 10px;
-    grid-template-rows: 40px 120px;
+    grid-template-rows: 40px 100px;
     grid-template-columns: 1fr;
     /* flex-direction: column;
     justify-content: space-around; */
@@ -63,10 +63,10 @@ div.recipe-summary{
 .summary{
     height: 100%;
     overflow: hidden;
-    font-size: 11.5px;
+    font-size: 11px;
     /* add custom ellipsis to overflowing text */
     text-overflow: ellipsis;
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 6;
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }

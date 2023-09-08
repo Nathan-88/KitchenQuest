@@ -93,7 +93,7 @@ header {
 .shadow_heading{
     color: #EBE6E6;
     font-family: Poppins;
-    font-size: 90px;
+    font-size: 85px;
     font-style: normal;
     font-weight: 600;
     line-height: 160%; /* 320px */
@@ -108,7 +108,7 @@ header {
 .hero-text-container {
     color: var(--blue-theme-color);
     font-family: var(--primary-font);
-    font-size: 40px;
+    font-size: 35px;
     font-style: normal;
     font-weight: 700;
     line-height: 90%;
@@ -133,7 +133,7 @@ div.search {
     background-color: white;
     margin-left: 20px;
     height: 50px;
-    width: 350px;
+    width: 300px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10);

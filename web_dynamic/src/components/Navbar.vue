@@ -109,12 +109,13 @@ img.menu{
     display: flex;
     background: var(--white);
     box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.10);
-    border-radius: 5px;
+    /* border-radius: 5px; */
     background-color: white;
     margin-inline: 0;
     position: absolute;
     top: 55px;
     visibility: hidden;
+    z-index: 1;
 }
 .nav-search input{
     border: none;

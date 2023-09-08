@@ -50,7 +50,7 @@ section.recipe-item h3{
 }
 div.recipe-summary{
     /* background-color: aqua; */
-    width: 200px;
+    max-width: 200px;
     height: 170px;
     margin: auto;
     display: grid;
@@ -63,10 +63,10 @@ div.recipe-summary{
 .summary{
     height: 100%;
     overflow: hidden;
-    font-size: 13px;
+    font-size: 11.5px;
     /* add custom ellipsis to overflowing text */
     text-overflow: ellipsis;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 7;
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
@@ -108,7 +108,7 @@ section.recipe-item:hover div.film{
         -webkit-box-orient: vertical;
     }
     div.recipe-summary{
-        width: 100%;
+        max-width: 100%;
         height: 90%;
         margin: auto;
         display: grid;

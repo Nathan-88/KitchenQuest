@@ -46,11 +46,16 @@ const fetchRecipe = async (searchValue) => {
 }
 
 export const getRecipe = async (query) => {
-  console.log('called me')
-  const status = await fetchRecipe(query)
-  if (status) router.push({name: 'search', params: {recipe: query}})
-  if (status === null) router.push({name: 'NoResult'})
-  else router.push({name: 'error'})
+  try{
+    const status = await fetchRecipe(query)
+    if (status) router.push({name: 'search', params: {recipe: query}})
+    else {
+      if (status === null) router.push({name: 'NoResult'})
+      else router.push({name: 'error'})
+    }
+  } catch (error) {
+    router.push({name: 'error'})
+  }
 }
 
 export const moreDetails = (recipeObj) => {

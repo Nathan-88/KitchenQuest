@@ -5,9 +5,9 @@ import Navbar from '@/components/Navbar.vue';
   <div>
     <Navbar :showsearch="true" />
     <section>
-      <h1>Sorry, Error processing your request</h1>
-      <p>This may be due to bad connection or Invalid request</p>
-      <img src="@/assets/images/alert-error.svg" alt="reconstruct your query" class="error-image">
+      <h1>Your request didn't yield a result</h1>
+      <p>This could be because you overloaded your request with keywords. Try using specific keywords, one at a time.</p>
+      <img src="@/assets/images/no-result-found.png" alt="reconstruct your query" class="error-image">
     </section>
   </div>
 </template>

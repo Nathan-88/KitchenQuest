@@ -5,6 +5,7 @@ import HomeView from '@/views/HomeView.vue'
 import SearchResultView from '@/views/SearchResultView.vue'
 import RecipePageView from '@/views/RecipePageView.vue'
 import ErrorView from '@/views/ErrorView.vue'
+import NoResult from '@/views/NoResult.vue'
 
 // Create a router instance using the createRouter function
 const router = createRouter({
@@ -44,6 +45,12 @@ const router = createRouter({
       path: '/search/error',
       name: 'error',
       component: ErrorView,
+      meta: { transition: '' }
+    },
+    {
+      path: '/search/no-result',
+      name: 'NoResult',
+      component: NoResult,
       meta: { transition: '' }
     },
     {

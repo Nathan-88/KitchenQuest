@@ -68,16 +68,31 @@ section.recipe-display{
     min-height: 320px;
 }
 section.recipes .random-recipe-image{
-    width: 300px;
-    height: 338px;
+    width: 100%;
+    height: 100%;
     flex-shrink: 0;
-    background: url('@/assets/images/image-1d 1.png');
+    background: url('@/assets/images/food-random-image.png');
     background-color: var(--background-color);
     background-size: contain;
     background-repeat: no-repeat;
+    /* background-position: center; */
     display: inline-block;
-    /* grid-column: 1/2; */
-    margin-top: 2px;
+    /* margin-top: 2px; */
+    position: relative;
+    top: -20px;
+}
+@media(max-width: 599px){
+  /* 
+     This would have preference over the one above until 600px
+     The preference is because the bottom style for the same property
+     has more preference over the top style, top to bottom approach 
+  */
+  section.recipes .random-recipe-image{
+      width: 100vw;
+      height: 338px;
+      position: relative;
+      background-position: 35px;
+  }
 }
 div.recipe-container{
     /* grid-column: 2/3; */
@@ -129,5 +144,19 @@ div.recipe-container button{
     font-style: normal;
     border-style: none;
     cursor: pointer;
+}
+@media(min-width: 800px){
+  section.recipes .random-recipe-image{
+    width: 300px;
+    height: 338px;
+    flex-shrink: 0;
+    background: url('@/assets/images/image-1d 1.png');
+    background-color: var(--background-color);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-top: 2px;
+    position: static;
+  }
 }
 </style>

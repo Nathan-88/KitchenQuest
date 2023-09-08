@@ -34,8 +34,9 @@ const fetchRecipe = async (searchValue) => {
       url: import.meta.env.VITE_SPOONACULAR_BASE_URL,
       params: params
   }).then((response) =>  {
+    // check for empty result, so a different page can be displayed
+      if (response.data['results'].length === 0) return null
       store.recipes = response.data['results']
-      // localStorage.setItem('recipes', JSON.stringify(store.recipes))
       return true
   })
   .catch((error) => {
@@ -48,6 +49,7 @@ export const getRecipe = async (query) => {
   console.log('called me')
   const status = await fetchRecipe(query)
   if (status) router.push({name: 'search', params: {recipe: query}})
+  if (status === null) router.push({name: 'NoResult'})
   else router.push({name: 'error'})
 }
 

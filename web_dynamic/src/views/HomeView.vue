@@ -67,25 +67,34 @@ header {
     grid-template-columns: repeat(6, 1fr);
 }
 .nav-container {
-    grid-column: 1/5;
+    position: relative;
+    grid-column: 1/7;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    /* background-color: blue; */
+}
+@media(max-width: 799px){
+    .nav-container::before{
+        position: absolute;
+        content: "";
+        background-color: red;
+        width: 45%;
+        height: 100%;
+        top: 0px;
+        right: 0px;
+        z-index: -1;
+        opacity: 0.7;
+    }
 }
 
-.red_box{
-    grid-column: 5/7;
-    width: 100%;
-    height: 600px;
-    background-color: var(--red-color);
-    flex-shrink: 0;
-}
+
 .shadow_heading{
     color: #EBE6E6;
     font-family: Poppins;
-    font-size: 120px;
+    font-size: 90px;
     font-style: normal;
     font-weight: 600;
     line-height: 160%; /* 320px */
@@ -95,49 +104,39 @@ header {
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
-    padding: 30px;
+    padding: 15px;
 }
 .hero-text-container {
     color: var(--blue-theme-color);
     font-family: var(--primary-font);
-    font-size: 50px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 700;
     line-height: 90%;
-    letter-spacing: -4.1px;
+    letter-spacing: -2.1px;
     width: 80%;
-    margin-left: 100px;
+    margin-left: 70px;
     position: relative;
-    top: -40px;
+    top: -50px;
+    /* background-color: red; */
 }
+/* .hero-text{
+    background-color: aqua;
+} */
 .hero-text:nth-child(4){
     top: -120px;
 }
 .hero-text:nth-child(5) {
     top: -150px;
 }
-div.dots {
-    width: 100%;
-    background-image: url('../assets/images/Vector.svg');
-    background-repeat: repeat;
-    background-size: 34px;
-    width: 350px;
-    height: 75%;
-    position: absolute;
-    right: 20%;
-    top: 20%;
-    background-color: transparent;
-}
-.food-image {
-    position: absolute;
-    top: 20%;
-    right: 12%;
-    height: 500px;
-    width: 500px;
+.red_box,
+div.dots,
+img.food-image{
+    display: none;
 }
 div.search {
     background-color: white;
-    margin-left: 100px;
+    margin-left: 20px;
     height: 50px;
     width: 350px;
     display: grid;
@@ -147,9 +146,76 @@ div.search {
     position: relative;
     top: 0px;
 }
-/* div.search:has(input:focus-visible){
-    border-width: 1px;
-} */
+
+@media(min-width: 800px) {
+
+    .nav-container {
+        grid-column: 1/5;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+
+    .shadow_heading{
+        color: #EBE6E6;
+        font-family: Poppins;
+        font-size: 120px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 160%; /* 320px */
+        display: flex;
+        width: 100%;
+        height: 150px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        padding: 30px;
+    }
+    .red_box{
+        display: block;
+        grid-column: 5/7;
+        width: 100%;
+        height: 600px;
+        background-color: var(--red-color);
+        flex-shrink: 0;
+    }
+    div.dots {
+        display: block;
+        width: 100%;
+        background-image: url('../assets/images/Vector.svg');
+        background-repeat: repeat;
+        background-size: 34px;
+        width: 350px;
+        height: 75%;
+        position: absolute;
+        right: 20%;
+        top: 20%;
+        background-color: transparent;
+    }
+    img.food-image {
+        display: block;
+        position: absolute;
+        top: 20%;
+        right: 12%;
+        height: 500px;
+        width: 500px;
+    }
+    div.search {
+        background-color: white;
+        margin-left: 100px;
+        height: 50px;
+        width: 350px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10);
+        /* positioning it using its base position, which is down */
+        position: relative;
+        top: 0px;
+    }
+}
 
 div.search input{
     height: 100%;
@@ -248,57 +314,7 @@ div.quote-two p{
 /* Recipe Section */
 
 /* Trending Section */
-section.trending{
-    width: 100%;
-    min-height: 380px;
-    display: grid;
-    grid-template-rows: 70px 1fr;
-    grid-template-columns: 1fr;
-    row-gap: 30px;
-}
-section.trending-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: auto;
-    row-gap: 50px;
-    width: 100%;
-    min-height: 350px;
-    margin-bottom: 30px;
-}
-section.trending .trending-recipe{
-    width: 70%;
-    height: 240px;
-    border-radius: 100px 0px 100px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    margin-top: 50px;
-    margin-inline: auto;
-}
-.trending-recipe:nth-child(odd){
-    background-color: white;
-}
-div.recipe-content{
-    margin-top: 70px;
-}
-div.trending-recipe img{
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    top: -80px;
-}
-div.trending-recipe h3{
-    font-size: 15px;
-    font-weight: 700;
-}
-div.trending-recipe p{
-    font-size: 12px;
-    width: 80%;
-    margin: auto;
-}
+
 /* Explore Section */
 
 </style>

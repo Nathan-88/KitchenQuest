@@ -2,10 +2,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // Import your component views
 import HomeView from '@/views/HomeView.vue'
-import SearchResultView from '@/views/SearchResultView.vue'
-import RecipePageView from '@/views/RecipePageView.vue'
-import ErrorView from '@/views/ErrorView.vue'
-import NoResult from '@/views/NoResult.vue'
 
 // Create a router instance using the createRouter function
 const router = createRouter({
@@ -22,7 +18,7 @@ const router = createRouter({
     {
       path: '/recipe_page',
       name: 'RecipePage',
-      component: RecipePageView,
+      component: () => import('@/views/RecipePageView.vue'),
       meta: { transition: '' }
     },
     {
@@ -37,20 +33,20 @@ const router = createRouter({
     {
       path: '/search/:recipe',
       name: 'search',
-      component: SearchResultView,
+      component: () => import('@/views/SearchResultView.vue'),
       props: true,
       meta: { transition: '' }
     },
     {
       path: '/search/error',
       name: 'error',
-      component: ErrorView,
+      component: () => import('@/views/ErrorView.vue'),
       meta: { transition: '' }
     },
     {
       path: '/search/no-result',
       name: 'NoResult',
-      component: NoResult,
+      component: () => import('@/views/NoResult.vue'),
       meta: { transition: '' }
     },
     {

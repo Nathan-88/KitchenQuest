@@ -37,6 +37,7 @@ const fetchRecipe = async (searchValue) => {
     // check for empty result, so a different page can be displayed
       if (response.data['results'].length === 0) return null
       store.recipes = response.data['results']
+      sessionStorage.setItem('recipes', JSON.stringify(store.recipes))
       return true
   })
   .catch((error) => {
@@ -65,10 +66,11 @@ export const moreDetails = (recipeObj) => {
 }
 
 export const persistState = (stateName) => {
-  const state = localStorage.getItem(stateName)
+  const state = sessionStorage.getItem(stateName)
   if (typeof state === 'string') {
     return ref(JSON.parse(state))
   }
+  console.log('returning null')
   return ref(null)
 }
 

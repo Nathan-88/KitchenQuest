@@ -2,24 +2,37 @@
 import { ref } from 'vue';
 import axios from 'axios'
 import { moreDetails, getRecipe, defaultParams } from '@/utilities'
+import { useRecipeStore } from '@/stores';
+import { storeToRefs } from 'pinia';
 
+// Initializing the store and reactive state
+const store = useRecipeStore()
+const { trending } = storeToRefs(store)
 
-const trending = ref(null)
+// getting and updating the params
 const params = {...defaultParams}
 params.number = 5
 
+// Removing tags from summary
 const fixSummary = (summary) => {
     let finalSummary = summary.replace(/<\/?[^>]+(>|$)/g, "")
     return finalSummary
 }
 
-axios({
-    url: import.meta.env.VITE_SPOONACULAR_BASE_URL,
-    params: params,
-}).then((response) => {
-    trending.value = response.data['results']
-}).catch((error) => console.error(error))
+// Fetching and updating the state based on a condition
+if (trending.value === null) {
+    axios({
+        url: import.meta.env.VITE_SPOONACULAR_BASE_URL,
+        params: params,
+    }).then((response) => {
+        store.trending = response.data['results']
+    }).catch((error) => console.error(error))
+}
 
+// watching for updates and storing 
+store.$subscribe((mutation, state) => {
+    sessionStorage.setItem('trending', JSON.stringify(state.trending))
+})
 </script>
 
 <template>

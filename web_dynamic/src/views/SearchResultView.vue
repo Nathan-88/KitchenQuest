@@ -16,9 +16,8 @@ const { recipes } = storeToRefs(store)
 if (recipes.value !== null) loading.value = false
 
 store.$subscribe((mutation, state) => {
-    console.log('mutation')
-    localStorage.setItem('recipes', JSON.stringify(state.recipes))
-    localStorage.setItem('recipeDetails', JSON.stringify(state.recipeDetails))
+    sessionStorage.setItem('recipes', JSON.stringify(state.recipes))
+    sessionStorage.setItem('recipeDetails', JSON.stringify(state.recipeDetails))
 })
 
 // onBeforeUnmount(() => localStorage.removeItem('recipes'))

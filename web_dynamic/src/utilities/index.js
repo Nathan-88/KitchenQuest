@@ -41,7 +41,6 @@ const fetchRecipe = async (searchValue) => {
       return true
   })
   .catch((error) => {
-    console.error(error)
     return false
   })
 }
@@ -70,7 +69,6 @@ export const persistState = (stateName) => {
   if (typeof state === 'string') {
     return ref(JSON.parse(state))
   }
-  console.log('returning null')
   return ref(null)
 }
 

@@ -67,25 +67,33 @@ header {
     grid-template-columns: repeat(6, 1fr);
 }
 .nav-container {
-    grid-column: 1/5;
+    position: relative;
+    grid-column: 1/7;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
-
-.red_box{
-    grid-column: 5/7;
-    width: 100%;
-    height: 600px;
-    background-color: var(--red-color);
-    flex-shrink: 0;
+@media(max-width: 799px){
+    .nav-container::before{
+        position: absolute;
+        content: "";
+        background-color: red;
+        width: 45%;
+        height: 100%;
+        top: 0px;
+        right: 0px;
+        z-index: -1;
+        opacity: 0.7;
+    }
 }
+
+
 .shadow_heading{
     color: #EBE6E6;
     font-family: Poppins;
-    font-size: 120px;
+    font-size: 85px;
     font-style: normal;
     font-weight: 600;
     line-height: 160%; /* 320px */
@@ -95,20 +103,20 @@ header {
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
-    padding: 30px;
+    padding: 10px;
 }
 .hero-text-container {
     color: var(--blue-theme-color);
     font-family: var(--primary-font);
-    font-size: 50px;
+    font-size: 35px;
     font-style: normal;
     font-weight: 700;
     line-height: 90%;
-    letter-spacing: -4.1px;
+    letter-spacing: -2.1px;
     width: 80%;
-    margin-left: 100px;
+    margin-left: 70px;
     position: relative;
-    top: -40px;
+    top: -50px;
 }
 .hero-text:nth-child(4){
     top: -120px;
@@ -116,30 +124,16 @@ header {
 .hero-text:nth-child(5) {
     top: -150px;
 }
-div.dots {
-    width: 100%;
-    background-image: url('../assets/images/Vector.svg');
-    background-repeat: repeat;
-    background-size: 34px;
-    width: 350px;
-    height: 75%;
-    position: absolute;
-    right: 20%;
-    top: 20%;
-    background-color: transparent;
-}
-.food-image {
-    position: absolute;
-    top: 20%;
-    right: 12%;
-    height: 500px;
-    width: 500px;
+.red_box,
+div.dots,
+img.food-image{
+    display: none;
 }
 div.search {
     background-color: white;
-    margin-left: 100px;
+    margin-left: 20px;
     height: 50px;
-    width: 350px;
+    width: 300px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10);
@@ -147,9 +141,6 @@ div.search {
     position: relative;
     top: 0px;
 }
-/* div.search:has(input:focus-visible){
-    border-width: 1px;
-} */
 
 div.search input{
     height: 100%;
@@ -170,11 +161,12 @@ div.search input[type=text]:focus-visible {
 div.search button{
     grid-column: 3/4;
     border-radius: 200px 4px 4px 4px;
-    background: var(--red-color);
+    background: var(--blue-theme-color);
     cursor: pointer;
     outline: none;
     border: none;
     color: white;
+    font-size: 20px;
 }
 
 /* MAin Content */
@@ -194,7 +186,8 @@ section.random{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-template-rows: auto;
-    margin-top: 20px;
+    margin-top: 40px;
+    row-gap: 40px;
 }
 section.random div.quote{
     /* background-color: green; */
@@ -205,6 +198,7 @@ section.random div.quote{
     justify-content: flex-start;
     gap: 10px;
     align-self: center;
+    box-shadow: 5px 10px 5px -10px rgba(0,0,0,0.2);
 }
 div.quote .red-bar{
     background: var(--red-color);
@@ -219,6 +213,8 @@ div.quote p {
     font-weight: 600;
     letter-spacing: -1.1px;
     /* background-color: blue; */
+    text-align: center;
+    margin: auto;
 }
 section.random div.quote-two{
     /* grid-column: 2/3; */
@@ -226,79 +222,184 @@ section.random div.quote-two{
     justify-self: end;
     display: flex;
     flex-direction: column;
+    text-align: center;
     /* padding-left: 100px; */
 }
 div.quote-two h3{
     color: var(--blue-theme-color);
     font-weight: 600;
-    text-align: right;
     font-size: 30px;
     font-style: normal;
     letter-spacing: -2.1px;
 }
 div.quote-two p{
-    max-width: 51ch;
+    max-width: 100%;
     color: var(--hash-color);
-    text-align: right;
     align-self: flex-end;
     font-weight: 400;
 }
 
+@media(min-width: 600px) and (max-width: 799px){
+    /* div.dots {
+        display: block;
+        width: 100%;
+        background-image: url('../assets/images/Vector.svg');
+        background-repeat: repeat;
+        background-size: 34px;
+        width: 300px;
+        height: 75%;
+        position: absolute;
+        right: 1.5vw;
+        top: 55%;
+        background-color: transparent;
+    } */
+    img.food-image {
+        display: block;
+        position: absolute;
+        top: 55%;
+        right: 1.5vw;
+        height: 300px;
+        width: 300px;
+    }
+    div.search button{ background: var(--red-color) }
+}
 
+/* Laptop screen style */
+@media(min-width: 800px) {
+
+    .nav-container {
+        grid-column: 1/5;
+        /* width: 100%; */
+        /* height: 100%; */
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* justify-content: flex-start; */
+    }
+
+
+    .shadow_heading{
+        /* color: #EBE6E6; */
+        /* font-family: Poppins; */
+        font-size: 120px;
+        /* font-style: normal; */
+        font-weight: 600;
+        /* line-height: 160%; */
+        /* display: flex; */
+        /* width: 100%; */
+        /* height: 150px; */
+        /* flex-direction: column; */
+        /* justify-content: center; */
+        /* flex-shrink: 0; */
+        padding: 30px;
+    }
+    .red_box{
+        display: block;
+        grid-column: 5/7;
+        width: 100%;
+        height: 600px;
+        background-color: var(--red-color);
+        flex-shrink: 0;
+    }
+    div.dots {
+        display: block;
+        width: 100%;
+        background-image: url('../assets/images/Vector.svg');
+        background-repeat: repeat;
+        background-size: 34px;
+        width: 350px;
+        height: 75%;
+        position: absolute;
+        right: 20%;
+        top: 20%;
+        background-color: transparent;
+    }
+    img.food-image {
+        display: block;
+        position: absolute;
+        top: 20%;
+        right: 12%;
+        height: 500px;
+        width: 500px;
+    }
+    div.search {
+        /* background-color: white; */
+        margin-left: 100px;
+        /* height: 50px; */
+        /* width: 350px; */
+        /* display: grid; */
+        /* grid-template-columns: repeat(3, 1fr); */
+        /* box-shadow: 0px 15px 40px 0px rgba(0, 0, 0, 0.10); */
+        /* positioning it using its base position, which is down */
+        /* position: relative; */
+        /* top: 0px; */
+    }
+    div.search button{
+        background: var(--red-color);
+    }
+    /* Random Section */
+    section.random{
+        min-height: 90px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-rows: auto;
+        margin-top: 20px;
+        row-gap: 20px;
+    }
+    section.random div.quote{
+        /* background-color: green; */
+        width: 100%;
+        /* grid-column: 1/2; */
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        align-self: center;
+        box-shadow: none;
+    }
+    div.quote .red-bar{
+        background: var(--red-color);
+        display: inline-block;
+        width: 10px;
+        height: 45px;
+        flex-shrink: 0;
+    }
+    div.quote p {
+        width: 25ch;
+        color: var(--blue-theme-color);
+        font-weight: 600;
+        letter-spacing: -1.1px;
+        /* background-color: blue; */
+        text-align: left;
+        margin: 0;
+    }
+    section.random div.quote-two{
+        /* grid-column: 2/3; */
+        width: 100%;
+        justify-self: end;
+        display: flex;
+        flex-direction: column;
+        /* padding-left: 100px; */
+    }
+    div.quote-two h3{
+        color: var(--blue-theme-color);
+        font-weight: 600;
+        text-align: right;
+        font-size: 30px;
+        font-style: normal;
+        letter-spacing: -2.1px;
+    }
+    div.quote-two p{
+        max-width: 51ch;
+        color: var(--hash-color);
+        text-align: right;
+        align-self: flex-end;
+        font-weight: 400;
+    }
+}
 /* Recipe Section */
 
 /* Trending Section */
-section.trending{
-    width: 100%;
-    min-height: 380px;
-    display: grid;
-    grid-template-rows: 70px 1fr;
-    grid-template-columns: 1fr;
-    row-gap: 30px;
-}
-section.trending-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: auto;
-    row-gap: 50px;
-    width: 100%;
-    min-height: 350px;
-    margin-bottom: 30px;
-}
-section.trending .trending-recipe{
-    width: 70%;
-    height: 240px;
-    border-radius: 100px 0px 100px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    margin-top: 50px;
-    margin-inline: auto;
-}
-.trending-recipe:nth-child(odd){
-    background-color: white;
-}
-div.recipe-content{
-    margin-top: 70px;
-}
-div.trending-recipe img{
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    top: -80px;
-}
-div.trending-recipe h3{
-    font-size: 15px;
-    font-weight: 700;
-}
-div.trending-recipe p{
-    font-size: 12px;
-    width: 80%;
-    margin: auto;
-}
+
 /* Explore Section */
 
 </style>

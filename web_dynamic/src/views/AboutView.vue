@@ -69,8 +69,6 @@ import Navbar from '@/components/Navbar.vue';
 
 <style scoped>
 .hero{
-  background-image: url('@/assets/images/Rectangle30.jpg');
-  background-repeat: no-repeat;
   text-align: center;
   margin: 0, auto;
   background-size: cover;
@@ -80,6 +78,28 @@ import Navbar from '@/components/Navbar.vue';
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  background-color: rgba(0, 0, 0,0.5);
+}
+.hero h2{
+  font-size: 50px;
+  font-weight: 600;
+  font-family: var(--primary-font);
+}
+.hero p{
+  font-size: 24px;
+}
+.hero::before{
+  content: "";
+  position: absolute;
+  background-image: url('@/assets/images/Rectangle30.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  z-index: -1;
 }
 .container {
     max-width:100%;

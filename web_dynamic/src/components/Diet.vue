@@ -47,7 +47,7 @@ section.recipes {
     grid-template-rows: 50px 2.5fr;
     grid-template-columns: minmax(40px, 1fr);
     margin: 50px 0;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 }
 section.recipes h2{
     grid-row: 1/2;
@@ -65,19 +65,34 @@ section.recipe-display{
     justify-items: center;
     row-gap: 30px;
     width: 100%;
-    min-height: 350px;
+    min-height: 320px;
 }
 section.recipes .random-recipe-image{
-    width: 300px;
-    height: 338px;
+    width: 100%;
+    height: 100%;
     flex-shrink: 0;
-    background: url('@/assets/images/image-1d 1.png');
+    background: url('@/assets/images/food-random-image.png');
     background-color: var(--background-color);
     background-size: contain;
     background-repeat: no-repeat;
+    /* background-position: center; */
     display: inline-block;
-    /* grid-column: 1/2; */
-    margin-top: 2px;
+    /* margin-top: 2px; */
+    position: relative;
+    top: -20px;
+}
+@media(max-width: 599px){
+  /* 
+     This would have preference over the one above until 600px
+     The preference is because the bottom style for the same property
+     has more preference over the top style, top to bottom approach 
+  */
+  section.recipes .random-recipe-image{
+      width: 100vw;
+      height: 338px;
+      position: relative;
+      background-position: 35px;
+  }
 }
 div.recipe-container{
     /* grid-column: 2/3; */
@@ -87,11 +102,10 @@ div.recipe-container{
     width: 100%;
 }
 img.recipe-image{
-    /*height: 20%;
-    width: 300px;*/
     height: 70%;
     width: 290px;
     margin-top: 10px;
+    object-fit: cover;
 }
 div.recipe-container .recipe-content-container{
     display: grid;
@@ -130,5 +144,19 @@ div.recipe-container button{
     font-style: normal;
     border-style: none;
     cursor: pointer;
+}
+@media(min-width: 800px){
+  section.recipes .random-recipe-image{
+    width: 300px;
+    height: 338px;
+    flex-shrink: 0;
+    background: url('@/assets/images/image-1d 1.png');
+    background-color: var(--background-color);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-top: 2px;
+    position: static;
+  }
 }
 </style>

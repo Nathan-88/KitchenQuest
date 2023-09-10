@@ -3,8 +3,24 @@ import Navbar from '@/components/Navbar.vue';
 import { useRecipeStore } from '@/stores';
 
 const store = useRecipeStore()
-
+const getAllNames = (dataArr) => {
+  const names = []
+  for (let data of dataArr){
+    names.push(data.name)
+  }
+  return names
+}
 const recipe = store.recipeDetails
+console.log(recipe.analyzedInstructions[0].steps)
+for (let step of recipe.analyzedInstructions[0].steps) {
+  console.log(`step ${step.number}: ${step.step}`)
+  const ingredients = getAllNames(step.ingredients)
+  const allIngredients = ingredients.join(', ')
+  console.log('\t\tIngredients:', allIngredients)
+  const equipments = getAllNames(step?.equipment)
+  if (equipments.length > 0) console.log('\t\tEquipments:', equipments.join(', '))
+  if (step?.length) console.log(`\t\ttime: ${step.length.number} ${step.length.unit}`)
+}
 </script>
 
 <template>
@@ -51,7 +67,29 @@ const recipe = store.recipeDetails
       <span><b>Ingredients: </b></span>
       <span class="span" v-for="ingredient in recipe.nutrition.ingredients" :key="ingredient.id">
         <em>{{ ingredient.name }};  </em>
-      </span>
+      </span><br><br>
+
+      <!-- Inline styling here, so take note and remove it -->
+      <div><b>Instructions: </b></div>
+      <div class="step" v-for="instruction in recipe.analyzedInstructions[0].steps" :key="instruction.id" style="margin: 15px 0;">
+        <div style="display: flex; gap: 10px;">
+          <span><b>Step {{ instruction.number }}:</b></span>
+          <span style="width: 80%;">{{ instruction.step }}</span>
+        </div>
+        <div style="margin-inline-start: 60px;" v-if="instruction.ingredients.length > 0">
+          <b>Ingredients: </b>
+          <span><em>{{ getAllNames(instruction.ingredients).join(', ') }}</em></span>
+        </div>
+        <div style="margin-inline-start: 60px;" v-if="instruction.equipment.length > 0">
+          <b>Equipment{{ instruction.equipment.length > 1 ? 's' : '' }}: </b>
+          <span><em>{{ getAllNames(instruction.equipment).join(', ') }}</em></span>
+        </div>
+        <div style="margin-inline-start: 60px;" v-if="instruction.length">
+          <b>Time: </b>
+          <span><em>{{ instruction.length.number }} minute{{ instruction.length.number > 1 ? 's' : '' }}</em></span>
+        </div>
+      </div>
+
     </main>
   </div>
 </template>

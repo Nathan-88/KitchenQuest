@@ -34,19 +34,28 @@ const fetchRecipe = async (searchValue) => {
       url: import.meta.env.VITE_SPOONACULAR_BASE_URL,
       params: params
   }).then((response) =>  {
+    // check for empty result, so a different page can be displayed
+      if (response.data['results'].length === 0) return null
       store.recipes = response.data['results']
+      sessionStorage.setItem('recipes', JSON.stringify(store.recipes))
       return true
   })
   .catch((error) => {
-    console.error(error)
     return false
   })
 }
 
 export const getRecipe = async (query) => {
-  const status = await fetchRecipe(query)
-  if (status) router.push({name: 'search', params: {recipe: query}})
-  else router.push({name: 'error'})
+  try{
+    const status = await fetchRecipe(query)
+    if (status) router.push({name: 'search', params: {recipe: query}})
+    else {
+      if (status === null) router.push({name: 'NoResult'})
+      else router.push({name: 'error'})
+    }
+  } catch (error) {
+    router.push({name: 'error'})
+  }
 }
 
 export const moreDetails = (recipeObj) => {
@@ -56,7 +65,7 @@ export const moreDetails = (recipeObj) => {
 }
 
 export const persistState = (stateName) => {
-  const state = localStorage.getItem(stateName)
+  const state = sessionStorage.getItem(stateName)
   if (typeof state === 'string') {
     return ref(JSON.parse(state))
   }

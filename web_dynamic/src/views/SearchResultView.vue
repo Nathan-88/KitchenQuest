@@ -2,7 +2,7 @@
 import RecipeItem from '@/components/RecipeItem.vue';
 import Navbar from '@/components/Navbar.vue';
 import { moreDetails } from '@/utilities';
-import { ref } from 'vue';
+import { ref, onBeforeUnmount } from 'vue';
 import { storeToRefs } from 'pinia'
 import { useRecipeStore } from '@/stores';
 
@@ -16,9 +16,11 @@ const { recipes } = storeToRefs(store)
 if (recipes.value !== null) loading.value = false
 
 store.$subscribe((mutation, state) => {
-    localStorage.setItem('recipes', JSON.stringify(state.recipes))
-    localStorage.setItem('recipeDetails', JSON.stringify(state.recipeDetails))
+    sessionStorage.setItem('recipes', JSON.stringify(state.recipes))
+    sessionStorage.setItem('recipeDetails', JSON.stringify(state.recipeDetails))
 })
+
+// onBeforeUnmount(() => localStorage.removeItem('recipes'))
 </script>
 
 <template>
@@ -43,18 +45,22 @@ store.$subscribe((mutation, state) => {
 
 <style scoped>
 h1{
-    padding-inline-start: 20px;
-    margin: 30px;
+    padding-inline-start: 10px;
+    margin: 30px 0;
 }
 main{
     width: 100%;
-    padding: 20px;
+    padding: 0px;
 }
 section.container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    row-gap: 20px;
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-rows: auto;
+    /* row-gap: 30px; */
+    /* gap: 10px; */
+    justify-content: center;
+    align-items: center;
+    /* width: 100vw; */
 }
 section.loading{
     width: 95%;
@@ -74,6 +80,30 @@ section.loading{
         width: 100%;
         background-color: rgb(224, 218, 218);
         height: 250px;
+    }
+}
+@media(min-width: 800px){
+    h1{
+        padding-inline-start: 20px;
+        margin: 30px;
+    }
+    main{
+        width: 100%;
+        padding: 20px;
+    }
+    section.container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        row-gap: 20px;
+        gap: 50px;
+    }
+    section.loading{
+        width: 95%;
+        margin: auto;
+        height: 250px;
+        background-color: lightgrey;
+        border-radius: 20px;
+        animation: 0.5s infinite alternate loading;
     }
 }
 </style>

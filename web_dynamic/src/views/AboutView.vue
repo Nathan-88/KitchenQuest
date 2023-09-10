@@ -120,10 +120,10 @@ h2 {
     font-size: 24px;
     font-weight: 600;
     background-color: #FD043C;
-    color:#fff;
-    border-radius: 20px;
-    width: 300px;
-    padding-left: 10px;
+    color: #fff;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 10px;
 }
 
 span{

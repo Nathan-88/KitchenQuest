@@ -119,8 +119,11 @@ p{
 h2 {
     font-size: 24px;
     font-weight: 600;
-    background-color: #fff;
-    color:#FD043C;
+    background-color: #FD043C;
+    color:#fff;
+    border-radius: 20px;
+    width: 300px;
+    padding-left: 10px;
 }
 
 span{

@@ -64,32 +64,39 @@ for (let step of recipe.analyzedInstructions[0].steps) {
         </div>
       </div>
       <hr>
-      <span><b>Ingredients: </b></span>
-      <span class="span" v-for="ingredient in recipe.nutrition.ingredients" :key="ingredient.id">
-        <em>{{ ingredient.name }};  </em>
-      </span><br><br>
+      <hr>
 
-      <!-- Inline styling here, so take note and remove it -->
-      <div><b>Instructions: </b></div>
-      <div class="step" v-for="instruction in recipe.analyzedInstructions[0].steps" :key="instruction.id" style="margin: 15px 0;">
-        <div style="display: flex; gap: 10px;">
-          <span><b>Step {{ instruction.number }}:</b></span>
-          <span style="width: 80%;">{{ instruction.step }}</span>
+      <div class="ingre-instru-container">
+        <div class="ingredients">
+          <h2 class="ingre_h2">Ingredients</h2>
+          <span class="span" v-for="ingredient in recipe.nutrition.ingredients" :key="ingredient.id">
+            <em>{{ ingredient.name }};  </em>
+          </span>
         </div>
-        <div style="margin-inline-start: 60px;" v-if="instruction.ingredients.length > 0">
-          <b>Ingredients: </b>
-          <span><em>{{ getAllNames(instruction.ingredients).join(', ') }}</em></span>
-        </div>
-        <div style="margin-inline-start: 60px;" v-if="instruction.equipment.length > 0">
-          <b>Equipment{{ instruction.equipment.length > 1 ? 's' : '' }}: </b>
-          <span><em>{{ getAllNames(instruction.equipment).join(', ') }}</em></span>
-        </div>
-        <div style="margin-inline-start: 60px;" v-if="instruction.length">
-          <b>Time: </b>
-          <span><em>{{ instruction.length.number }} minute{{ instruction.length.number > 1 ? 's' : '' }}</em></span>
+
+        <!-- Inline styling here, so take note and remove it -->
+        <div class="instruction">
+          <h2>Instructions</h2>
+          <div class="step" v-for="instruction in recipe.analyzedInstructions[0].steps" :key="instruction.id">
+            <div style="display: flex; gap: 10px;">
+              <span><b>Step {{ instruction.number }}:</b></span>
+              <span style="width: 70%;">{{ instruction.step }}</span>
+            </div>
+            <div style="margin-inline-start: 60px;" v-if="instruction.ingredients.length > 0">
+              <b>Ingredients: </b>
+              <span><em>{{ getAllNames(instruction.ingredients).join(', ') }}</em></span>
+            </div>
+            <div style="margin-inline-start: 60px;" v-if="instruction.equipment.length > 0">
+              <b>Equipment{{ instruction.equipment.length > 1 ? 's' : '' }}: </b>
+              <span><em>{{ getAllNames(instruction.equipment).join(', ') }}</em></span>
+            </div>
+            <div style="margin-inline-start: 60px;" v-if="instruction.length">
+              <b>Time: </b>
+              <span><em>{{ instruction.length.number }} minute{{ instruction.length.number > 1 ? 's' : '' }}</em></span>
+            </div>
+          </div>
         </div>
       </div>
-
     </main>
   </div>
 </template>
@@ -116,9 +123,9 @@ div.recipe_image{
 }
 
 div.recipe_image .image {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 800px;
+    height: 340px;
+    /* display: block; */
     max-width: 100%;
     background-position: center;
     background-repeat: repeat;
@@ -153,7 +160,7 @@ span.span{
 }
 div.recipe-summary .blackborder{
   border: 2px;
-  border-style: ridge;
+  /* border-style: ridge; */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -164,7 +171,7 @@ div.recipe-summary .blackborder{
   border-radius: 5px;
 }
 div.recipe-summary .blackborder .white-background{
-  background: #FFFFFFB2;
+  background: floralwhite;
   padding: 15px;
   word-spacing:1em;
 }
@@ -173,8 +180,8 @@ div.sharesection{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  margin-top: 20px;
+  max-width: 100%;
+  margin-top: 10px;
   margin-bottom: 20px;
   padding-top: 10px ;
 }
@@ -185,18 +192,19 @@ div.sharesection .share{
   justify-content: center;
   padding: 15px;
   border-radius: 5px;
-  margin-right:20px;
+  /* margin-right:20px; */
   background: var(--red-color);
 }
 
 div.sharesection .share img{
-  max-width: 2.5rem;
+  max-width: 1.5rem;
   height: auto;
-  margin-right: 1.5rem;
+  cursor: pointer;
+  margin-right: 1.3rem;
 }
 div.sharesection .share p{
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
 }
 
@@ -204,13 +212,17 @@ div.sharesection .media-container{
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 1.5rem;
 }
 
 div.sharesection .media-container .media{
   width: 2.5rem;
   height: 2.5rem;
   margin-right: 1.5rem;
+}
+
+div.sharesection .media-container > img:last-child{
+  margin-right: 1.7rem;
 }
 
 div.sharesection .media-container .media:hover{
@@ -221,5 +233,116 @@ div.sharesection .media-container .media:active{
 }
 div.sharesection .media-container .media:focus{
   outline: none;
+}
+
+.ingre-instru-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px 20px;
+  margin: 0px 20px;
+}
+
+div.ingredients{
+  width: 100%;
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background: floralwhite;
+}
+
+div.ingredients h2{
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+div.instruction{
+  width: 100%;
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background: floralwhite;
+}
+
+div.instruction h2{
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+div.instruction .step{
+  margin-bottom: 10px;
+}
+
+div.instruction .step span{
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+div.instruction .step span em{
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+div.instruction .step span b{
+  font-size: 1.2rem;
+}
+
+
+
+
+@media (max-width: 767px) {
+  /* Your styles for mobile view here */
+  div.recipe-summary{
+    margin: 0px;
+  }
+  div.recipe-summary .recipe_title{
+    align-items: flex-start;
+    margin-top: 5px;
+  }
+  div.recipe-summary .recipe_title h1{
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    line-height: 1.5rem;
+
+  }
+  div.recipe-summary .blackborder{
+    margin: 0px;
+    margin-top: 10px;
+    padding: 0px;
+    border-style: none;
+  }
+  div.recipe-summary .blackborder .white-background{
+    margin: 0px;
+    border: floralwhite;
+  }
+
+
+  div.sharesection .share{
+    padding: 10px;
+    margin: 0px;
+    margin-bottom: 10px;
+  }
+  div.sharesection .share p{
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100px;
+}
+div.sharesection .media-container{
+  margin-left: 0.5rem;
+}
+div.sharesection .media-container .media{
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+div.sharesection .media-container > img:last-child{
+  margin-right: 1.2rem;
+}
 }
 </style>

@@ -47,6 +47,10 @@ store.$subscribe((mutation, state) => {
 h1{
     padding-inline-start: 10px;
     margin: 30px 0;
+    color: #FFF;
+    background-color: #FD043C;
+    border-radius: 20px;
+    width: 400px;
 }
 main{
     width: 100%;
@@ -61,6 +65,8 @@ section.container{
     justify-content: center;
     align-items: center;
     /* width: 100vw; */
+    color: #261A5A;
+    
 }
 section.loading{
     width: 95%;
@@ -106,4 +112,5 @@ section.loading{
         animation: 0.5s infinite alternate loading;
     }
 }
+
 </style>

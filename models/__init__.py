@@ -5,10 +5,13 @@ from dotenv import load_dotenv
 from os import getenv
 
 load_dotenv()
+
+host = getenv('MONGO_CONNECTION_URI', '127.0.0.1')
 try:
-    connect(host=getenv('MONGO_CONNECTION_URI', '127.0.0.1'), db='kitchenquest')
     print('connecting')
-except Exception:
+    db = connect(db='kitchenquest', host=host, port=27017)
+    print(f'db: {db}')
+except Exception as error:
     print('ERROR')
-    print(Exception.with_traceback()) 
+    print(f'{type(error).__name__}: {error}')
 

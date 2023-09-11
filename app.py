@@ -23,7 +23,7 @@ def user():
 
     new_user = Users(username=username, password=password)
     new_user.save()
-    return 'ok', 200
+    return str(new_user.id), 200
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ import { getRecipe } from '../utilities';
     <section class="footer-container">
         <div class="social-info">
             <img class="logo" src="@/assets/images/Logo.svg" alt="Kitchen Quest">
-            <p>Nulla in lorem vitae mi ornare porttitor. Fusce nec nisi non ligula.</p>
+            <p>Welcome to KitchenQuest - Your Culinary Companion</p>
             <div class="media-container">
                 <img class="media" src="@/assets/images/whatsapp.svg" alt="Whatsapp">
                 <img class="media" src="@/assets/images/twitter.svg" alt="twitter">

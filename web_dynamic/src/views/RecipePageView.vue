@@ -33,7 +33,7 @@ for (let step of recipe.analyzedInstructions[0].steps) {
           <img class="image" :src="recipe.image" alt="recipe">
         </div>
         <div class="recipe-summary">
-          <div class= "recipe_title">
+          <div class="recipe_title">
             <div class="redbox"></div>
             <h1 class="recipe-title">{{ recipe.title }}</h1>
           </div>
@@ -64,24 +64,24 @@ for (let step of recipe.analyzedInstructions[0].steps) {
         </div>
       </div>
       <hr>
-      <span><b>Ingredients: </b></span>
+      <span id="ingredients"><b>Ingredients: </b></span>
       <span class="span" v-for="ingredient in recipe.nutrition.ingredients" :key="ingredient.id">
         <em>{{ ingredient.name }};  </em>
       </span><br><br>
 
       <!-- Inline styling here, so take note and remove it -->
-      <div><b>Instructions: </b></div>
+      <div id="instructions"><b>Instructions: </b></div>
       <div class="step" v-for="instruction in recipe.analyzedInstructions[0].steps" :key="instruction.id" style="margin: 15px 0;">
         <div style="display: flex; gap: 10px;">
           <span><b>Step {{ instruction.number }}:</b></span>
           <span style="width: 80%;">{{ instruction.step }}</span>
         </div>
-        <div style="margin-inline-start: 60px;" v-if="instruction.ingredients.length > 0">
-          <b>Ingredients: </b>
+        <div id="ingredient" style="margin-inline-start: 60px;" v-if="instruction.ingredients.length > 0">
+          <b id="ingredient">Ingredients: </b>
           <span><em>{{ getAllNames(instruction.ingredients).join(', ') }}</em></span>
         </div>
         <div style="margin-inline-start: 60px;" v-if="instruction.equipment.length > 0">
-          <b>Equipment{{ instruction.equipment.length > 1 ? 's' : '' }}: </b>
+          <b id="ingredient">Equipment{{ instruction.equipment.length > 1 ? 's' : '' }}: </b>
           <span><em>{{ getAllNames(instruction.equipment).join(', ') }}</em></span>
         </div>
         <div style="margin-inline-start: 60px;" v-if="instruction.length">
@@ -113,17 +113,20 @@ div.recipe_image{
   overflow: hidden;
   position: relative;
   border-radius: 15px;
+  background-color: #261A5A;
 }
 
 div.recipe_image .image {
-    width: 100%;
+    width: 30%;
     height: auto;
-    display: block;
+    display: center;
     max-width: 100%;
     background-position: center;
     background-repeat: repeat;
     border-radius: 15px;
-    object-fit: cover;
+    /*object-fit: cover;*/
+    margin-bottom: 10px;
+    margin-top: 15px;
 }
 div.recipe-summary{
   /* display: inline-block; */
@@ -136,6 +139,7 @@ div.recipe-summary .recipe_title{
   display: flex;
   justify-content:flex-start;
   align-items: center;
+  color: #261A5A;
 }
 div.recipe-summary .recipe_title .redbox{
   background: var(--red-color);
@@ -221,5 +225,38 @@ div.sharesection .media-container .media:active{
 }
 div.sharesection .media-container .media:focus{
   outline: none;
+}
+span#ingredients {
+  font-size: 25px;
+  color: #FFF;
+  background-color: #FD043C;
+  border-radius: 15px;
+  padding-left: 10px;
+  margin-left: 10px;
+  text-align: 5px;
+  width: 185px;
+  display: inline-block;
+  margin-top: 20px;
+}
+span.span {
+  font-size: 20px;
+}
+div#instructions {
+  font-size: 25px;
+  color: #FFF;
+  background-color: #FD043C;
+  border-radius: 15px;
+  padding-left: 10px;
+  margin-left: 10px;
+  /*display: inline-block;*/
+  width: 185px;
+}
+div.step div{
+  margin-left: 100px;
+  font-size: 18px;
+}
+div b#ingredient {
+  margin-left: 150px;
+  font-size: 18px;
 }
 </style>

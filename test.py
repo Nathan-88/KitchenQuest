@@ -2,7 +2,7 @@
 import requests
 
 user_details = {
-    'username': 'Test User',
+    'username': 'nathan333',
     'password': 'Testpassword'
 }
 save_recipe = {

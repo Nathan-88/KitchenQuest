@@ -21,6 +21,6 @@ But we didn't stop there. We also understand the importance of dietary preferenc
 - Social Sharing: Users can share recipes they like on social media platforms or through messaging apps.
 
 ### Introduction of team members:
-- Ojulari Mistura[Linkedin]('https://www.linkedin.com/in/ojulari-mistura-0652ab151/')
-- Onwuka Chukwuebuka[Linkedin]('www.linkedin.com/in/nathan-88-ebu')
-- Adeyemo Wonderful [Linkedin]('https://www.linkedin.com/in/wonderful-adeyemo-oluwadara/')
+- Ojulari Mistura [Linkedin]('www.linkedin.com/in/ojulari-mistura-0652ab151/')
+- Onwuka Chukwuebuka [Linkedin]('www.linkedin.com/in/nathan-88-ebu')
+- Adeyemo Wonderful [Linkedin]('www.linkedin.com/in/wonderful-adeyemo-oluwadara/')

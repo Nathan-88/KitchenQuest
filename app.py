@@ -1,13 +1,17 @@
 """Flask app"""
-from flask import Flask, request
+from flask import Flask, request, session
 from models.users import Users
 from argon2 import PasswordHasher
 from mongoengine.errors import *
-import json
+from dotenv import load_dotenv
+from os import getenv
+
+load_dotenv()
 
 passwordhasher = PasswordHasher()
 
 app = Flask(__name__)
+app.secret_key = getenv('SECRET_KEY')
 
 @app.route('/', strict_slashes=False)
 def index():
@@ -20,11 +24,12 @@ def user():
     
     if request.method == 'POST':
         try:
-            password = request.form.get('password')
+            username = request.form.get('username',
+                                        request.get_json().get('username'))
+            password = request.form.get('password',
+                                        request.get_json().get('password'))
             hashed_password = passwordhasher.hash(password)
-            print(hashed_password)
-            username = request.form.get('username')
-            # print(username)
+
 
             new_user = Users(username=username, password=hashed_password)
             new_user.save()
@@ -37,8 +42,10 @@ def user():
 def verify_user():
     """user login authentication"""
     
-    password = request.form.get('password')
-    username = request.form.get('username')
+    username = request.form.get('username',
+                                request.get_json().get('username'))
+    password = request.form.get('password',
+                                request.get_json().get('password'))
     try:
         user = Users.objects.get(username=username)
         password_match = passwordhasher.verify(user.password, password)

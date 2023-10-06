@@ -4,7 +4,7 @@ KitchenQuest aims to solve the challenge of deciding what to cook based on the i
 But we didn't stop there. We also understand the importance of dietary preferences. Whether you're a vegetarian, following a Ketogenic diet, or need gluten-free options, we've got you covered. With KitchenQuest, you can search for recipes based on your preferences, and we'll provide you with a tailored list of delicious options. It's designed to streamline the cooking process, reduce food waste, and offer creative culinary options even when faced with limited ingredients.
 
 ### link to website:
-[Kitchen](Kitchen-quest.onrender.com)
+[Kitchen](https://Kitchen-quest.onrender.com)
 
 ![Kitchenquest laptopview](kq-lapt.png)
 ![about pg laptopview](kitch-sea.png)
